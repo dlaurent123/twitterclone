@@ -1,0 +1,21 @@
+DROP DATABASE IF EXISTS twitter_db;
+CREATE DATABASE twitter_db;
+
+\c twitter_db;
+
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS likes;
+
+CREATE TABLE users
+(
+    id VARCHAR PRIMARY KEY ,
+    email TEXT UNIQUE,
+
+);
+
+CREATE TABLE posts
+(
+    id SERIAL PRIMARY KEY,
+);
+

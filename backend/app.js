@@ -1,11 +1,12 @@
 const app = require("express")();
 const bodyParser = require("body-parser");
-const port = 3001;
 const cors = require("cors");
-
+require("dotenv").config();
+const PORT = process.env.PORT;
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-app.listen(port, () => {
-  console.log(`Running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Running on port ${PORT}`);
 });
