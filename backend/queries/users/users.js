@@ -1,20 +1,21 @@
 const db = require("../../database/index");
 
-const getAllUsers = async (req, res) => {
+const getUser = async (req, res) => {
+  const id = req.body.id;
   try {
-    let users = await db.any("SELECT * FROM users");
-    if (users.length) {
+    let user = await db.one("SELECT * FROM users WHERE id = $1", [id]);
+    if (user) {
       res.status(200).json({
-        users,
-        message: "All users returned",
+        user,
+        message: "user returned",
       });
     } else {
-      throw "No users found";
+      throw error;
     }
   } catch (error) {
-    res.status(404).json(error);
+    res.status(404).json("user not found");
   }
 };
 
-module.exports = { getAllUsers };
+module.exports = { getUser };
 // createUser, deleteUser, updateUser

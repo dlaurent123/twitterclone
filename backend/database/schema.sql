@@ -48,29 +48,45 @@ CREATE TABLE follows
 CREATE TABLE hashtags
 (
     hashtag_id SERIAL PRIMARY KEY,
+    hashtag VARCHAR,
     post_hashtaged INT NOT NULL REFERENCES posts(post_id) ON DELETE CASCADE
 );
 
--- INSERT INTO users
--- VALUES(1, 'dan@dan.com'),
---     (2, '2gina@gina.com'),
---     (3, '3gina@gina.com'),
---     (4, '4gina@gina.com'),
---     (5, '5gina@gina.com');
+INSERT INTO users
+VALUES(1, 'dan@gmail.com');
+
+INSERT INTO users
+VALUES(2, 'mike@gmail.com');
+
+INSERT INTO users
+VALUES
+    (3, 'tim@gmail.com');
+
+INSERT INTO users
+VALUES
+    (4, 'gina@gmail.com');
+
+INSERT INTO users
+VALUES
+    (5, 'jes@gmail.com');
 
 
--- INSERT INTO follows
--- VALUES(1, 1, 3),
---     (2, 2, 1),
---     (3, 3, 1),
---     (4, 4, 1),
---     (5, 5, 1);
+INSERT INTO follows
+VALUES(1, 1, 3),
+    (2, 2, 1),
+    (3, 3, 1),
+    (4, 4, 1),
+    (5, 5, 1);
 
--- INSERT INTO posts
--- VALUES(1, 'HELLO WORLD', NULL, 1),
---     (2, 'HELLO GIRL', NULL, 2);
+INSERT INTO posts
+VALUES(1, 'HELLO WORLD', NULL, 1),
+    (2, 'HELLO GIRL', NULL, 2);
 
--- INSERT INTO likes
--- VALUES(1, 1, 1),
---     (2, 1, 1);          
+INSERT INTO likes
+VALUES(1, 1, 1),
+    (2, 1, 1);
+
+INSERT INTO hashtags
+VALUES(1, 'shremlife', 2),
+    (2, 'happy', 1);        
 

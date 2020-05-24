@@ -1,12 +1,12 @@
 const express = require("express");
 const users = express.Router();
 const {
-  getAllUsers,
+  getUser,
   // createUser,
   // deleteUser,
   // updateUser
 } = require("../../queries/users/users");
 
-users.get("/", getAllUsers);
+users.get("/id", getUser);
 
 module.exports = users;
