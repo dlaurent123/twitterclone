@@ -12,8 +12,8 @@ DROP TABLE IF EXISTS hashtags;
 
 CREATE TABLE users
 (
-    id VARCHAR PRIMARY KEY,
-    user_name VARCHAR ,
+    id VARCHAR PRIMARY KEY UNIQUE,
+    user_name VARCHAR UNIQUE ,
     email VARCHAR UNIQUE ,
     dob VARCHAR ,
     bio VARCHAR,
