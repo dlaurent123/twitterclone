@@ -1,4 +1,5 @@
 const db = require("../../database/index");
+const checkKeys = require("./helpers");
 
 const getUser = async (req, res) => {
   const { id } = req.body;
@@ -38,5 +39,24 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = { getUser, createUser };
-// , deleteUser, updateUser
+const updateUser = async (req, res) => {
+  const { id } = req.body;
+  const { column, valueToUpdate } = checkKeys(req.body);
+
+  try {
+    await db.none(`UPDATE users SET ${column} = $1 WHERE id =$2`, [
+      valueToUpdate,
+      id,
+    ]);
+    res.status(200).json({
+      message: "user updated",
+    });
+  } catch (error) {
+    if (error.constraint === "users_user_name_key") {
+      res.status(404).json({ error: "user name already exists" });
+    }
+  }
+};
+
+module.exports = { getUser, createUser, updateUser };
+// , deleteUser,

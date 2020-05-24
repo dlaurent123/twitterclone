@@ -4,10 +4,11 @@ const {
   getUser,
   createUser,
   // deleteUser,
-  // updateUser
+  updateUser,
 } = require("../../queries/users/users");
 
 users.get("/id", getUser);
 users.post("/", createUser);
+users.patch("/", updateUser);
 
 module.exports = users;
