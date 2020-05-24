@@ -58,5 +58,16 @@ const updateUser = async (req, res) => {
   }
 };
 
-module.exports = { getUser, createUser, updateUser };
-// , deleteUser,
+const deleteUser = async (req, res) => {
+  const { id } = req.body;
+  try {
+    await db.none("DELETE FROM users WHERE id =$1", [id]);
+    res.status(200).json({
+      message: "user has been successfully deleted",
+    });
+  } catch (error) {
+    res.status(404).json({ message: "opps something went wrong" });
+  }
+};
+
+module.exports = { getUser, createUser, updateUser, deleteUser };
