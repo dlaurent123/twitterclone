@@ -2,7 +2,9 @@ const db = require("../../database/index");
 
 const getAllPosts = async (req, res) => {
   try {
-    let posts = await db.any("SELECT * FROM posts ORDER BY post_time DESC");
+    let posts = await db.any(
+      "SELECT id,user_name, name,avatar,post_id,post_body,post_image,post_time FROM posts LEFT JOIN users ON posts.poster_id = users.id ORDER BY posts.post_time desc"
+    );
     res.status(200).json({
       status: 200,
       posts,
@@ -22,7 +24,9 @@ const createPost = async (req, res) => {
       postImg,
     ]);
     res.status(200).json({ status: 200, message: "post created" });
-  } catch (error) {}
+  } catch (error) {
+    res.status(400).json({ status: 400, message: "bad request" });
+  }
 };
 
 module.exports = { getAllPosts, createPost };

@@ -1,5 +1,4 @@
 const db = require("../../database/index");
-const checkKeys = require("./helpers");
 
 const getUser = async (req, res) => {
   const { id } = req.body;
@@ -20,14 +19,29 @@ const getUser = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
-  const { id, userName, email, dob, bio, avatar } = req.body;
+  const {
+    id,
+    userName,
+    email,
+    dob,
+    bio,
+    avatar,
+    location,
+    website,
+    bannerImg,
+    name,
+  } = req.body;
   try {
-    await db.none("INSERT INTO users VALUES($1,$2,$3,$4,$5,$6)", [
+    await db.none("INSERT INTO users VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)", [
       id,
       userName,
       email,
+      name,
       dob,
       bio,
+      location,
+      website,
+      bannerImg,
       avatar,
     ]);
     res.status(200).json({
@@ -38,30 +52,27 @@ const createUser = async (req, res) => {
     if (error.constraint === "users_user_name_key") {
       res
         .status(404)
-        .json({ status: 404, message: "user name already exists" });
+        .json({ status: 404, message: "user name or email already exists" });
+    } else {
+      res.status(404).json({ status: 404, message: "email already exists" });
     }
   }
 };
 
 const updateUser = async (req, res) => {
-  const { id } = req.body;
-  const { column, valueToUpdate } = checkKeys(req.body);
+  const { id, name, bio, location, website, bannerImg, avatar } = req.body;
 
   try {
-    await db.none(`UPDATE users SET ${column} = $1 WHERE id =$2`, [
-      valueToUpdate,
-      id,
-    ]);
+    await db.none(
+      `UPDATE users SET name = $1, bio = $2, location = $3, website = $4, banner_img = 5$, avatar = $6  WHERE id =$7`,
+      [name, bio, location, website, bannerImg, avatar, id]
+    );
     res.status(200).json({
       status: 200,
       message: "user updated",
     });
   } catch (error) {
-    if (error.constraint === "users_user_name_key") {
-      res
-        .status(404)
-        .json({ status: 404, message: "user name already exists" });
-    }
+    res.status(400).json({ status: 400, message: "bad request" });
   }
 };
 
@@ -74,7 +85,7 @@ const deleteUser = async (req, res) => {
       message: "user has been successfully deleted",
     });
   } catch (error) {
-    res.status(404).json({ status: 404, message: "opps something went wrong" });
+    res.status(404).json({ status: 404, message: "not found" });
   }
 };
 

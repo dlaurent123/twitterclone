@@ -10,15 +10,20 @@ DROP TABLE IF EXISTS follows;
 DROP TABLE IF EXISTS hashtags;
 
 
+
 CREATE TABLE users
 (
     id VARCHAR PRIMARY KEY UNIQUE,
     user_name VARCHAR UNIQUE ,
-    email VARCHAR UNIQUE ,
+    email VARCHAR UNIQUE,
+    name VARCHAR ,
     dob VARCHAR ,
     bio VARCHAR,
-    avatar VARCHAR,
-    date_joined TIMESTAMP NOT NULL DEFAULT  CURRENT_TIMESTAMP
+    location VARCHAR,
+    website VARCHAR DEFAULT NULL,
+    banner_img VARCHAR DEFAULT NULL,
+    avatar VARCHAR DEFAULT NULL,
+    date_joined DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
 
 );
 
@@ -26,7 +31,7 @@ CREATE TABLE posts
 (
     post_id SERIAL PRIMARY KEY,
     post_body VARCHAR ,
-    post_image VARCHAR,
+    post_image VARCHAR DEFAULT NULL,
     poster_id VARCHAR NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     post_time TIMESTAMP NOT NULL DEFAULT  CURRENT_TIMESTAMP
 );
@@ -53,22 +58,22 @@ CREATE TABLE hashtags
 );
 
 INSERT INTO users
-VALUES(1, 'dan@gmail.com');
+VALUES(1, 'bigDan', 'dan@gmail.com');
 
 INSERT INTO users
-VALUES(2, 'mike@gmail.com');
-
-INSERT INTO users
-VALUES
-    (3, 'tim@gmail.com');
+VALUES(2, 'mikey', 'mike@gmail.com');
 
 INSERT INTO users
 VALUES
-    (4, 'gina@gmail.com');
+    (3, 'timmyTurner', 'tim@gmail.com');
 
 INSERT INTO users
 VALUES
-    (5, 'jes@gmail.com');
+    (4, 'damnGina' , 'gina@gmail.com');
+
+INSERT INTO users
+VALUES
+    (5, 'jesTheMess', 'jes@gmail.com');
 
 
 INSERT INTO follows

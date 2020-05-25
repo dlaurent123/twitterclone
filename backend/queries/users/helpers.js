@@ -17,6 +17,31 @@ const checkKey = (body) => {
       valueToUpdate: body.avatar,
     };
   }
+  if (body.name) {
+    return {
+      column: "name",
+      valueToUpdate: body.name,
+    };
+  }
+
+  if (body.bannerImg) {
+    return {
+      column: "banner_img",
+      valueToUpdate: body.bannerImg,
+    };
+  }
+  if (body.website) {
+    return {
+      column: "website",
+      valueToUpdate: body.website,
+    };
+  }
+  if (body.location) {
+    return {
+      column: "location",
+      valueToUpdate: body.location,
+    };
+  }
 };
 
 module.exports = checkKey;
