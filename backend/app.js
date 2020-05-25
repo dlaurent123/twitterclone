@@ -9,7 +9,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", usersRouter);
-app.use("/api/users", usersRouter);
 
 app.listen(PORT, () => {
   console.log(`Running on port ${PORT}`);
