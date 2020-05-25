@@ -7,6 +7,7 @@ const getUser = async (req, res) => {
     let user = await db.one("SELECT * FROM users WHERE id = $1", [id]);
     if (user) {
       res.status(200).json({
+        status: 200,
         user,
         message: "user returned",
       });
@@ -14,7 +15,7 @@ const getUser = async (req, res) => {
       throw error;
     }
   } catch (error) {
-    res.status(404).json("user not found");
+    res.status(404).json({ status: 404, message: "user not found" });
   }
 };
 
@@ -30,11 +31,14 @@ const createUser = async (req, res) => {
       avatar,
     ]);
     res.status(200).json({
+      status: 200,
       message: "user created",
     });
   } catch (error) {
     if (error.constraint === "users_user_name_key") {
-      res.status(404).json({ error: "user name already exists" });
+      res
+        .status(404)
+        .json({ status: 404, message: "user name already exists" });
     }
   }
 };
@@ -49,11 +53,14 @@ const updateUser = async (req, res) => {
       id,
     ]);
     res.status(200).json({
+      status: 200,
       message: "user updated",
     });
   } catch (error) {
     if (error.constraint === "users_user_name_key") {
-      res.status(404).json({ error: "user name already exists" });
+      res
+        .status(404)
+        .json({ status: 404, message: "user name already exists" });
     }
   }
 };
@@ -63,10 +70,11 @@ const deleteUser = async (req, res) => {
   try {
     await db.none("DELETE FROM users WHERE id =$1", [id]);
     res.status(200).json({
+      status: 200,
       message: "user has been successfully deleted",
     });
   } catch (error) {
-    res.status(404).json({ message: "opps something went wrong" });
+    res.status(404).json({ status: 404, message: "opps something went wrong" });
   }
 };
 

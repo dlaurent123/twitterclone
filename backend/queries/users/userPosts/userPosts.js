@@ -16,4 +16,20 @@ const getPostsByUser = async (req, res) => {
   }
 };
 
-module.exports = { getPostsByUser };
+const deletePostByUser = async (req, res) => {
+  const { posterId, postId } = req.body;
+  try {
+    await db.none("DELETE FROM posts WHERE poster_id = $1 AND post_id = $2", [
+      posterId,
+      postId,
+    ]);
+    res.status(200).json({
+      status: 200,
+      message: "post by user deleted",
+    });
+  } catch (error) {
+    res.status(404).json({ status: 404, message: "oops something went wrong" });
+  }
+};
+
+module.exports = { getPostsByUser, deletePostByUser };
