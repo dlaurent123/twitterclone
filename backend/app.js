@@ -5,6 +5,7 @@ const usersRouter = require("./routes/users/users");
 const postsRouter = require("./routes/posts/posts");
 const followsRouter = require("./routes/follows/follows");
 const likesRouter = require("./routes/likes/likes");
+const hashtagsRouter = require("./routes/hashtags/hashtags");
 
 require("dotenv").config();
 const PORT = process.env.PORT;
@@ -18,6 +19,7 @@ app.use("/api/users", usersRouter);
 app.use("/api/posts", postsRouter);
 app.use("/api/follows", followsRouter);
 app.use("/api/likes", likesRouter);
+app.use("/api/hashtags", hashtagsRouter);
 
 app.listen(PORT, () => {
   console.log(`Running on port ${PORT}`);
