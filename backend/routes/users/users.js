@@ -1,6 +1,6 @@
 const express = require("express");
 const users = express.Router();
-const userPostsRouter = require("./userPosts/userPosts");
+const usersPostsRouter = require("./usersPosts/usersPosts");
 const {
   getUser,
   createUser,
@@ -12,6 +12,6 @@ users.get("/id", getUser);
 users.post("/", createUser);
 users.patch("/", updateUser);
 users.delete("/", deleteUser);
-users.use("/posts", userPostsRouter);
+users.use("/posts", usersPostsRouter);
 
 module.exports = users;

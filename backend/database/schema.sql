@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS hashtags;
 
 CREATE TABLE users
 (
-    id VARCHAR PRIMARY KEY UNIQUE,
+    user_id VARCHAR PRIMARY KEY UNIQUE,
     user_name VARCHAR UNIQUE ,
     email VARCHAR UNIQUE,
     name VARCHAR ,
@@ -29,25 +29,25 @@ CREATE TABLE users
 
 CREATE TABLE posts
 (
-    post_id SERIAL PRIMARY KEY,
+    post_id SERIAL PRIMARY KEY ,
     post_body VARCHAR ,
+    poster_id VARCHAR NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
     post_image VARCHAR DEFAULT NULL,
-    poster_id VARCHAR NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     post_time TIMESTAMP NOT NULL DEFAULT  CURRENT_TIMESTAMP
 );
 
 CREATE TABLE likes
 (
-    id SERIAL PRIMARY KEY,
-    liker_id VARCHAR NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    like_id SERIAL PRIMARY KEY,
+    liker_id VARCHAR NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
     liked_post_id INT NOT NULL REFERENCES posts(post_id) ON DELETE CASCADE
 );
 
 CREATE TABLE follows
 (
-    id SERIAL PRIMARY KEY,
-    follower_id VARCHAR NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    user_followed_id VARCHAR NOT NULL REFERENCES users(id) ON DELETE CASCADE
+    follow_id SERIAL PRIMARY KEY,
+    follower_id VARCHAR NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+    user_followed_id VARCHAR NOT NULL REFERENCES users(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE hashtags
