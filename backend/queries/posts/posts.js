@@ -30,7 +30,7 @@ const deletePostByUserId = async (req, res) => {
   }
 };
 const getAllPostsByUserId = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.body;
   try {
     let posts = await db.any(
       "SELECT * FROM posts WHERE poster_id = $1 ORDER BY post_time DESC",
