@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Input from "../input/Input";
+import Button from "../button/Button";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -19,22 +20,7 @@ const LoginForm = () => {
         spanName={"Phone, email, or username"}
       />
       <Input value={password} setValue={setPassword} spanName={"Password"} />
-      <div className="buttonDiv">
-        {isDisabled ? (
-          <button
-            style={{ backgroundColor: "#18608E", color: "#8A8F95" }}
-            disabled={isDisabled}
-            type="submit"
-          >
-            {" "}
-            Log in{" "}
-          </button>
-        ) : (
-          <button disabled={isDisabled} type="submit">
-            Log in
-          </button>
-        )}
-      </div>
+      <Button isDisabled={isDisabled} />
     </form>
   );
 };
