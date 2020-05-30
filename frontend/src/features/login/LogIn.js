@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/login.css";
 import birdImg from "../../images/whitebird.png";
-import Inputs from "./input/Input";
+import LoginForm from "./loginForm/LoginForm";
 
 const LogIn = () => {
   return (
@@ -13,14 +13,7 @@ const LogIn = () => {
             <h1 style={{ color: "white" }}>
               <span>Log in to Twitter</span>
             </h1>
-            <form className="loginForm">
-              <Inputs />
-              <div className="buttonDiv">
-                <button disabled={true} type="submit">
-                  Log in
-                </button>
-              </div>
-            </form>
+            <LoginForm />
           </div>
         </div>
       </div>
