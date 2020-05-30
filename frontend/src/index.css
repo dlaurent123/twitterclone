@@ -11,6 +11,14 @@
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 } */
-#icon {
-  height: 1vh;
+
+body {
+  background-color: rgb(21, 32, 43);
+  margin: unset;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  font-size: 15px;
 }

@@ -1,0 +1,140 @@
+.loginTop {
+  min-height: 412px;
+}
+.loginmain {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.bird {
+  height: 59px;
+  background: rgb(18, 29, 43);
+}
+span {
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 23px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+.loginCont {
+  /* width: 100vw; */
+  display: flex;
+  /* justify-content: center; */
+}
+label {
+  background-color: #192734;
+  display: flex;
+  flex-direction: column;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(136, 153, 166);
+  border-radius: 2px;
+}
+
+label:focus-within span {
+  color: rgb(29, 161, 242, 1);
+}
+
+label:focus-within {
+  border-bottom-color: rgb(29, 161, 242, 1);
+}
+.spanDiv {
+  display: flex;
+  padding-top: 5x;
+}
+
+.inputDiv span {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
+  color: #8899a6;
+  font-size: inherit;
+  align-self: flex-start;
+  margin-top: unset;
+  margin-bottom: unset;
+  height: auto;
+  width: auto;
+  font-weight: 40px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.inputCont {
+  display: flex;
+  flex-direction: column;
+  /* align-self: start; */
+}
+
+.loginInput {
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 5px;
+  text-align: start;
+  font-size: 21px;
+  color: white;
+  box-sizing: border-box;
+  resize: none;
+  -webkit-appearance: none;
+  outline-style: none;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+}
+
+.inputDiv {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 29px;
+  padding-right: 29px;
+  font-size: 15px;
+}
+
+h1 {
+  margin-bottom: 10px;
+  margin-top: 13px;
+}
+
+.imgDiv {
+  margin-top: 9px;
+  margin-left: 405px;
+  margin-right: 420px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 600px;
+}
+
+.buttonDiv {
+  display: flex;
+  flex-direction: column;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+.buttonDiv button {
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  background-color: #1da1f2;
+  color: white;
+  font-weight: bolder;
+  font-size: inherit;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.buttonDiv button:hover {
+  background-color: #1a91da;
+}
