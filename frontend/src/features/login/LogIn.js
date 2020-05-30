@@ -2,6 +2,7 @@ import React from "react";
 import "./css/login.css";
 import birdImg from "../../images/whitebird.png";
 import LoginForm from "./loginForm/LoginForm";
+import { Link } from "react-router-dom";
 
 const LogIn = () => {
   return (
@@ -14,6 +15,17 @@ const LogIn = () => {
               <span>Log in to Twitter</span>
             </h1>
             <LoginForm />
+            <div>
+              <div className="linksDiv">
+                <Link className="links" to="/">
+                  <span>Forgot password?</span>
+                </Link>
+                <span className="dot">•</span>
+                <Link className="links" to="/signup">
+                  <span>Sign up for Twitter</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
