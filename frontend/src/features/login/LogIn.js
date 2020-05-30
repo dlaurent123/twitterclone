@@ -15,7 +15,7 @@ const LogIn = () => {
               <span>Log in to Twitter</span>
             </h1>
             <LoginForm />
-            <div>
+            <div className="linksDivCont">
               <div className="linksDiv">
                 <Link className="links" to="/">
                   <span>Forgot password?</span>
