@@ -25,9 +25,7 @@ span {
   flex-direction: column;
 }
 .loginCont {
-  /* width: 100vw; */
   display: flex;
-  /* justify-content: center; */
 }
 label {
   background-color: #192734;
@@ -70,7 +68,6 @@ label:focus-within {
 .inputCont {
   display: flex;
   flex-direction: column;
-  /* align-self: start; */
 }
 
 .loginInput {
