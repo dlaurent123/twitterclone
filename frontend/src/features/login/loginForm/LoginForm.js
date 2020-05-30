@@ -1,21 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "../input/Input";
-const spanName1 = "Phone, email, or username";
-const spanName2 = "Password";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isDisabled, setIsDisabled] = useState(true);
+
+  useEffect(() => {
+    email && password ? setIsDisabled(false) : setIsDisabled(true);
+  }, [email, password]);
   const onSubmit = () => {};
 
   return (
     <form onSubmit={onSubmit} className="loginForm">
-      <Input value={email} setValue={setEmail} spanName={spanName1} />
-      <Input value={password} setValue={setPassword} spanName={spanName2} />
+      <Input
+        value={email}
+        setValue={setEmail}
+        spanName={"Phone, email, or username"}
+      />
+      <Input value={password} setValue={setPassword} spanName={"Password"} />
       <div className="buttonDiv">
-        <button disabled={true} type="submit">
-          Log in
-        </button>
+        {isDisabled ? (
+          <button
+            style={{ backgroundColor: "#18608E", color: "#8A8F95" }}
+            disabled={isDisabled}
+            type="submit"
+          >
+            {" "}
+            Log in{" "}
+          </button>
+        ) : (
+          <button disabled={isDisabled} type="submit">
+            Log in
+          </button>
+        )}
       </div>
     </form>
   );

@@ -9,6 +9,7 @@ const Input = ({ value, setValue, spanName }) => {
         </div>
         <div className="inputCont">
           <input
+            required
             value={value}
             onChange={(e) => setValue(e.target.value)}
             className="loginInput"
