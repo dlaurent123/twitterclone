@@ -3,6 +3,7 @@ import "./css/login.css";
 import birdImg from "../../images/whitebird.png";
 import LoginForm from "./loginForm/LoginForm";
 import { Link } from "react-router-dom";
+import { updateModal } from "../modal/modalSlice";
 
 const LogIn = () => {
   return (
@@ -21,7 +22,7 @@ const LogIn = () => {
                   <span>Forgot password?</span>
                 </Link>
                 <span className="dot">•</span>
-                <Link className="links" to="/signup">
+                <Link onClick={updateModal} className="links">
                   <span>Sign up for Twitter</span>
                 </Link>
               </div>
