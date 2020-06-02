@@ -21,7 +21,14 @@
   align-items: flex-start;
   min-height: 30px;
   flex-shrink: 1;
-  align-self: stretch;
+  cursor: pointer;
+}
+.space img {
+  height: 15px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
 }
 
 .headerImg {
@@ -66,6 +73,12 @@
   padding-right: 1em;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.nextButton button:hover {
+  background-color: #1a91da;
 }
 
 .birdImg {
