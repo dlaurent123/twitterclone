@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./css/login.css";
 import LoginCont from "./loginCont/LoginCont";
 import Modal from "react-modal";
@@ -7,13 +7,12 @@ import ModalPage2 from "../modal/ModalPage2";
 import { afterOpenModal, customStyles } from "../modal/helpers/helpers";
 import { modalState } from "../modal/modalSlice";
 import { useSelector } from "react-redux";
+import { pageState } from "../page/pageSlice";
 
 const LogIn = () => {
   const modalIsOpen = useSelector(modalState);
-  const [page, setPage] = useState(1);
-  const test = () => {
-    setPage(2);
-  };
+  const page = useSelector(pageState);
+
   return (
     <>
       <div className="loginTop">
@@ -29,10 +28,6 @@ const LogIn = () => {
             style={customStyles}
             contentLabel="Example Modal"
           >
-            <div className="nextButton">
-              <button onClick={test}>Next</button>
-            </div>
-
             {page === 1 ? <ModalPage1 /> : <ModalPage2 />}
           </Modal>
         </div>

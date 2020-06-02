@@ -2,6 +2,7 @@ import React from "react";
 import image from "../../images/whitebird.png";
 import { useDispatch } from "react-redux";
 import { updateModal } from "../modal/modalSlice";
+import { changePage } from "../page/pageSlice";
 import cancel from "../../images/cross.png";
 
 const Header = () => {
@@ -17,9 +18,9 @@ const Header = () => {
           <div className="headerImg">
             <img alt="img" className="birdImg" src={image}></img>
           </div>
-          {/* <div className="nextButton">
-            <button>Next</button>
-          </div> */}
+          <div className="nextButton">
+            <button onClick={() => dispatch(changePage(2))}>Next</button>
+          </div>
         </div>
       </div>
     </div>

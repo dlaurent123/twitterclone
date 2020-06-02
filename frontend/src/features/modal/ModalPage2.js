@@ -4,12 +4,17 @@ import { useDispatch } from "react-redux";
 import { updateModal } from "../modal/modalSlice";
 import image from "../../images/whitebird.png";
 import Input from "../login/input/Input";
+import { changePage } from "../page/pageSlice";
 
 const ModalPage2 = () => {
   const dispatch = useDispatch();
   const onSubmit = () => {};
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const close = () => {
+    dispatch(updateModal());
+    dispatch(changePage(1));
+  };
 
   return (
     <>
@@ -17,11 +22,7 @@ const ModalPage2 = () => {
         <div className="headerContainer">
           <div className="headerItems">
             <div className="space">
-              <img
-                alt=""
-                src={cancel}
-                onClick={() => dispatch(updateModal())}
-              />
+              <img alt="" src={cancel} onClick={close} />
             </div>
             <div className="headerImg">
               <img alt="img" className="birdImg" src={image}></img>
