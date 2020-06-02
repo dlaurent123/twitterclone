@@ -16,7 +16,7 @@ const Select = ({ id, value, setValue, spanName, optionValues }) => {
             onChange={(e) => setValue(e.target.value)}
             className="loginInput"
           >
-            <option selected disabled></option>
+            <option defaultValue></option>
             <Options values={optionValues} />
           </select>
           <img alt="" src={selectImg} className="selectImg"></img>
