@@ -20,7 +20,7 @@ const LoginForm = () => {
         spanName={"Phone, email, or username"}
       />
       <Input value={password} setValue={setPassword} spanName={"Password"} />
-      <Button isDisabled={isDisabled} />
+      <Button isDisabled={isDisabled} text={"Log on"} />
     </form>
   );
 };

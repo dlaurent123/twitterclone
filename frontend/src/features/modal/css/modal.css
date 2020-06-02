@@ -31,6 +31,22 @@
   padding-bottom: 5px;
 }
 
+#space img {
+  height: 26px;
+}
+
+#space {
+  flex-basis: unset;
+}
+
+#stepsDiv {
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+#h1 span {
+  font-size: 19px;
+}
+
 .headerImg {
   display: flex;
   height: 100%;
@@ -237,5 +253,49 @@
 }
 
 #spanId span {
+  padding: unset;
+}
+.white {
+  font-size: 15px;
+  margin: unset;
+  display: flex;
+  padding-right: 4px;
+}
+
+.blue {
+  font-size: 15px;
+  margin: unset;
+  display: flex;
+  padding-right: 4px;
+  color: #1b95e0;
+  text-decoration: unset;
+}
+.all a {
+  text-decoration: unset;
+}
+
+.termsDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.termsDiv a {
+  display: flex;
+}
+
+.all {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 400;
+  margin-top: 60px;
+}
+
+#page2Button {
+  margin-right: unset;
+  margin-left: unset;
+}
+
+#bDivId {
   padding: unset;
 }

@@ -1,20 +1,21 @@
 import React from "react";
 
-const Button = ({ isDisabled }) => {
+const Button = ({ isDisabled, text, buttonId, bDivId }) => {
   return (
-    <div className="buttonDiv">
+    <div id={bDivId} className="buttonDiv">
       {isDisabled ? (
         <button
+          id={buttonId}
           style={{ backgroundColor: "#18608E", color: "#8A8F95" }}
           disabled={isDisabled}
           type="submit"
         >
           {" "}
-          Log in{" "}
+          {text}{" "}
         </button>
       ) : (
         <button disabled={isDisabled} type="submit">
-          Log in
+          {text}
         </button>
       )}
     </div>
