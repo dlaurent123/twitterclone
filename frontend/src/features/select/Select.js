@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Options from "./options/Options";
 import selectImg from "../../images/download.png";
-const Select = ({ id, value, setValue, spanName, optionValues }) => {
+import { useDispatch } from "react-redux";
+import { updateForm } from "../form/FormSlice";
+const Select = ({ id, value, spanName, optionValues, keyName }) => {
+  const dispatch = useDispatch();
   return (
     <div id={id} className="inputDiv">
       <label>
@@ -13,7 +16,9 @@ const Select = ({ id, value, setValue, spanName, optionValues }) => {
             id={value}
             required
             value={value}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={(e) =>
+              dispatch(updateForm({ [keyName]: e.target.value }))
+            }
             className="loginInput"
           >
             <option defaultValue></option>

@@ -1,39 +1,26 @@
 import React, { useState, useEffect } from "react";
 import Input from "../../login/input/Input";
 import FormFooter from "./formFooter/FormFooter";
-import { useDispatch, useSelector } from "react-redux";
-import { updateForm, formState } from "../../form/FormSlice";
+import { useSelector } from "react-redux";
+import { formState } from "../../form/FormSlice";
 
 const SignUpForm = () => {
-  const [name, setname] = useState("");
-  const [email, setemail] = useState("");
-  const [isDisabled, setIsDisabled] = useState(true);
-  const [birthMonth, setBirthMonth] = useState("");
-  const [birthDay, setBirthDay] = useState("");
-  const [birthYear, setBirthYear] = useState("");
   const [count, setCount] = useState(0);
-  const dispatch = useDispatch();
   const state = useSelector(formState);
 
-  console.log(state);
-
   useEffect(() => {
-    name && email ? setIsDisabled(false) : setIsDisabled(true);
-    setCount(name.length);
-  }, [name, email]);
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    dispatch(updateForm({ name, email, birthMonth, birthYear, birthDay }));
-  };
+    if (state.name !== undefined) {
+      setCount(state.name.length);
+    }
+  }, [state.name, state.email]);
 
   return (
-    <form onSubmit={onSubmit} className="loginForm">
+    <form className="loginForm">
       <div className="cont1">
         <Input
-          value={state.name ? state.name : name}
-          setValue={setname}
+          value={state.name ? state.name : ""}
           spanName={"Name"}
+          keyName={"name"}
         />
         <div className="countCont">
           <div className="spaceCont"></div>
@@ -44,19 +31,15 @@ const SignUpForm = () => {
       </div>
       <div className="cont1">
         <Input
-          value={state.email ? state.email : email}
-          setValue={setemail}
+          value={state.email ? state.email : ""}
           spanName={"Email"}
+          keyName={"email"}
         />
       </div>
       <div className="linkInsert">
         <span>Use phone instead</span>
       </div>
-      <button type="submit">Test</button>
-      <FormFooter
-        values={{ birthMonth, birthDay, birthYear }}
-        setValues={{ setBirthMonth, setBirthDay, setBirthYear }}
-      />
+      <FormFooter />
     </form>
   );
 };

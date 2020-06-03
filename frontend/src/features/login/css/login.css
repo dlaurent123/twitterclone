@@ -151,6 +151,7 @@ h1 {
     Ubuntu, "Helvetica Neue", sans-serif;
   text-decoration: unset;
   margin: unset;
+  cursor: pointer;
 }
 .links span:hover {
   text-decoration: underline;

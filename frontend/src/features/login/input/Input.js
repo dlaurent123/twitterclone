@@ -1,6 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { updateForm } from "../../form/FormSlice";
 
-const Input = ({ value, setValue, spanName }) => {
+const Input = ({ value, spanName, type, keyName }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className="inputDiv">
       <label>
@@ -9,9 +13,12 @@ const Input = ({ value, setValue, spanName }) => {
         </div>
         <div className="inputCont">
           <input
+            type={type}
             required
             value={value}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={(e) =>
+              dispatch(updateForm({ [keyName]: e.target.value }))
+            }
             className="loginInput"
           />
         </div>

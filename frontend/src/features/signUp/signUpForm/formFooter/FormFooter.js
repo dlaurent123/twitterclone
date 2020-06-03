@@ -4,7 +4,7 @@ import { days, years, months } from "../../helpers/helpers";
 import { useSelector } from "react-redux";
 import { formState } from "../../../form/FormSlice";
 
-const FormFooter = ({ values, setValues }) => {
+const FormFooter = () => {
   let state = useSelector(formState);
   return (
     <div className="formFooter">
@@ -21,25 +21,25 @@ const FormFooter = ({ values, setValues }) => {
       <div className="formSelects">
         <div className="selectDCont">
           <Select
-            value={state.birthMonth ? state.birthMonth : values.birthMonth}
-            setValue={setValues.setBirthMonth}
+            value={state.birthMonth ? state.birthMonth : " "}
             id={"sel1"}
             spanName={"Month"}
             optionValues={months}
+            keyName={"birthMonth"}
           />
           <Select
-            value={state.birthDay ? state.birthDay : values.birthDay}
-            setValue={setValues.setBirthDay}
+            value={state.birthDay ? state.birthDay : " "}
             id={"sel2"}
             spanName={"Day"}
             optionValues={days}
+            keyName={"birthDay"}
           />
           <Select
-            value={state.birthYear ? state.birthYear : values.birthYear}
-            setValue={setValues.setBirthYear}
+            value={state.birthYear ? state.birthYear : " "}
             id={"sel3"}
             spanName={"Year"}
             optionValues={years}
+            keyName={"birthYear"}
           />
         </div>
       </div>
