@@ -1,7 +1,7 @@
 const db = require("../../../database/index");
 
 const getUsersFollows = async (req, res) => {
-  let { userId } = req.body;
+  let { userId } = req.params;
   try {
     let follows = await db.any(
       "SELECT user_followed_id, user_name, name, bio, avatar FROM follows LEFT JOIN users ON user_followed_id = users.user_id WHERE follower_id = $1",

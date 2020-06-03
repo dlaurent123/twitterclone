@@ -11,10 +11,10 @@ const {
 } = require("../../queries/users/users");
 
 users.use("/posts", usersPostsRouter);
-users.use("/follows", usersFollowsRouter);
+users.use("/follows/:id", usersFollowsRouter);
 
-users.get("/check", isExisting);
-users.get("/id", getUser);
+users.post("/check", isExisting);
+users.get("/:id", getUser);
 users.post("/", createUser);
 users.patch("/", updateUser);
 users.delete("/", deleteUser);

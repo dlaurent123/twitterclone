@@ -1,9 +1,9 @@
 const db = require("../../database/index");
 
 const getUser = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   try {
-    let user = await db.one("SELECT * FROM users WHERE id = $1", [id]);
+    let user = await db.one("SELECT * FROM users WHERE user_id = $1", [id]);
     if (user) {
       res.status(200).json({
         status: 200,
@@ -89,19 +89,18 @@ const deleteUser = async (req, res) => {
   }
 };
 
-const isExisting = async (req, res) => {
+const isExisting = async (req, res, next) => {
   const { email } = req.body;
+
   try {
     await db.one("SELECT * FROM users WHERE email=$1", [email]);
     res.status(200).json({
       status: 200,
-      message: "user exist",
+      message: "user exists",
       user: true,
     });
   } catch (error) {
-    res
-      .status(404)
-      .json({ status: 404, message: "user does not exist", user: false });
+    next(error);
   }
 };
 

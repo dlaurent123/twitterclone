@@ -21,6 +21,20 @@ app.use("/api/follows", followsRouter);
 app.use("/api/likes", likesRouter);
 app.use("/api/hashtags", hashtagsRouter);
 
+const handle = (err, req, res, next) => {
+  if (!err.received) {
+    res.status(200).json({
+      status: 200,
+      message: "email do not exist",
+      user: false,
+    });
+  } else {
+    res.status(400).json({ status: 404, message: "not found" });
+  }
+};
+
+app.use(handle);
+
 app.listen(PORT, () => {
   console.log(`Running on port ${PORT}`);
 });

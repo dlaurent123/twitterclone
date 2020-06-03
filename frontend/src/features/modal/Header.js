@@ -33,10 +33,19 @@ const Header = () => {
     dispatch(clearForm());
   };
   const onNext = async () => {
-    let res = await axios.get("/api/users/check", { email: state.email });
-
-    // send call to the backend to check email and if res is ok proceed to next step
-    // dispatch(changePage(2));
+    try {
+      const res = await axios.post("/api/users/check", {
+        email: state.email,
+      });
+      console.log(res);
+      if (res.data.user) {
+        alert("email alreay exists");
+      } else {
+        dispatch(changePage(2));
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -51,9 +60,6 @@ const Header = () => {
           </div>
           <div className="nextButton">
             <Button func={onNext} isDisabled={isDisabled} text={"Next"} />
-            {/* <button disabled={isDisabled} onClick={onNext}>
-              Next
-            </button> */}
           </div>
         </div>
       </div>
