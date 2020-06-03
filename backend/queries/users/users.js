@@ -89,4 +89,20 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { getUser, createUser, updateUser, deleteUser };
+const isExisting = async (req, res) => {
+  const { email } = req.body;
+  try {
+    await db.one("SELECT * FROM users WHERE email=$1", [email]);
+    res.status(200).json({
+      status: 200,
+      message: "user exist",
+      user: true,
+    });
+  } catch (error) {
+    res
+      .status(404)
+      .json({ status: 404, message: "user does not exist", user: false });
+  }
+};
+
+module.exports = { getUser, createUser, updateUser, deleteUser, isExisting };
