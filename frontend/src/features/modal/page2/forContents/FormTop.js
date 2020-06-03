@@ -3,16 +3,16 @@ import Input from "../../../login/input/Input";
 import { useSelector } from "react-redux";
 import { formState } from "../../../form/FormSlice";
 
-const FormTop = ({ setValues, userName, password }) => {
+const FormTop = ({ password }) => {
   let state = useSelector(formState);
 
   return (
     <>
       <div className="cont1">
         <Input
-          value={state.userName ? state.userName : userName}
-          setValue={setValues.setUserName}
+          value={state.userName ? state.userName : " "}
           spanName={"User Name"}
+          keyName={"userName"}
         />
         <div className="countCont">
           <div className="spaceCont"></div>
@@ -20,12 +20,7 @@ const FormTop = ({ setValues, userName, password }) => {
         </div>
       </div>
       <div className="cont1">
-        <Input
-          type={"password"}
-          value={password}
-          setValue={setValues.setPassword}
-          spanName={"Password"}
-        />
+        <Input type={"password"} value={password} spanName={"Password"} />
       </div>
     </>
   );

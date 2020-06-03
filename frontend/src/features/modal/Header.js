@@ -6,6 +6,7 @@ import { changePage } from "../page/pageSlice";
 import cancel from "../../images/cross.png";
 import { clearForm, formState } from "../form/FormSlice";
 import Button from "../login/button/Button";
+import axios from "axios";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -31,9 +32,11 @@ const Header = () => {
     dispatch(updateModal());
     dispatch(clearForm());
   };
-  const onNext = () => {
+  const onNext = async () => {
+    let res = await axios.get("/api/users/check", { email: state.email });
+
     // send call to the backend to check email and if res is ok proceed to next step
-    dispatch(changePage(2));
+    // dispatch(changePage(2));
   };
 
   return (
