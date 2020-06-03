@@ -135,6 +135,9 @@ h1 {
 .buttonDiv button:hover {
   background-color: #1a91da;
 }
+.linksDivCont {
+  margin-top: 21px;
+}
 
 .linksDiv {
   display: flex;

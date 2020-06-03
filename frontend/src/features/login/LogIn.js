@@ -1,35 +1,38 @@
 import React from "react";
 import "./css/login.css";
-import birdImg from "../../images/whitebird.png";
-import LoginForm from "./loginForm/LoginForm";
-import { Link } from "react-router-dom";
+import LoginCont from "./loginCont/LoginCont";
+import Modal from "react-modal";
+import ModalPage1 from "../modal/ModalPage1";
+import ModalPage2 from "../modal/ModalPage2";
+import { afterOpenModal, customStyles } from "../modal/helpers/helpers";
+import { modalState } from "../modal/modalSlice";
+import { useSelector } from "react-redux";
+import { pageState } from "../page/pageSlice";
 
 const LogIn = () => {
+  const modalIsOpen = useSelector(modalState);
+  const page = useSelector(pageState);
+
   return (
-    <div className="loginTop">
-      <div className="loginCont">
-        <div className="loginmain">
-          <div className="imgDiv">
-            <img className="bird" alt="img" src={birdImg}></img>
-            <h1 style={{ color: "white" }}>
-              <span>Log in to Twitter</span>
-            </h1>
-            <LoginForm />
-            <div>
-              <div className="linksDiv">
-                <Link className="links" to="/">
-                  <span>Forgot password?</span>
-                </Link>
-                <span className="dot">•</span>
-                <Link className="links" to="/signup">
-                  <span>Sign up for Twitter</span>
-                </Link>
-              </div>
-            </div>
-          </div>
+    <>
+      <div className="loginTop">
+        <LoginCont />
+      </div>
+      <div className="signUpDiv">
+        <div className="modalDiv">
+          <Modal
+            ariaHideApp={false}
+            ariaModal={true}
+            isOpen={modalIsOpen}
+            onAfterOpen={afterOpenModal}
+            style={customStyles}
+            contentLabel="Example Modal"
+          >
+            {page === 1 ? <ModalPage1 /> : <ModalPage2 />}
+          </Modal>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
