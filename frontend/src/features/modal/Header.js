@@ -39,7 +39,7 @@ const Header = () => {
       });
       console.log(res);
       if (res.data.user) {
-        alert("email alreay exists");
+        alert(res.data.message);
       } else {
         dispatch(changePage(2));
       }

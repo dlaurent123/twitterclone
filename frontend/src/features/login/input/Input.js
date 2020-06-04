@@ -13,6 +13,7 @@ const Input = ({ value, spanName, type, keyName }) => {
         </div>
         <div className="inputCont">
           <input
+            autoFocus={true}
             type={type}
             required
             value={value}

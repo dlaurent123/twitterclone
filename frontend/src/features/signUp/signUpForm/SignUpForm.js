@@ -18,6 +18,7 @@ const SignUpForm = () => {
     <form className="loginForm">
       <div className="cont1">
         <Input
+          required
           value={state.name ? state.name : ""}
           spanName={"Name"}
           keyName={"name"}
@@ -31,6 +32,7 @@ const SignUpForm = () => {
       </div>
       <div className="cont1">
         <Input
+          type={"email"}
           value={state.email ? state.email : ""}
           spanName={"Email"}
           keyName={"email"}

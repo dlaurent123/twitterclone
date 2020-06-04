@@ -10,7 +10,7 @@ const FormTop = ({ password }) => {
     <>
       <div className="cont1">
         <Input
-          value={state.userName ? state.userName : " "}
+          value={state.userName ? state.userName : ""}
           spanName={"User Name"}
           keyName={"userName"}
         />

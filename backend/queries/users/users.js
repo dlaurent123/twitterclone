@@ -90,13 +90,14 @@ const deleteUser = async (req, res) => {
 };
 
 const isExisting = async (req, res, next) => {
-  const { email } = req.body;
-
+  const key = Object.keys(req.body)[0];
+  const value = req.body[key];
+  console.log(key, value);
   try {
-    await db.one("SELECT * FROM users WHERE email=$1", [email]);
+    await db.one(`SELECT * FROM users WHERE ${key}=$1`, [value]);
     res.status(200).json({
       status: 200,
-      message: "user exists",
+      message: `${key} already exists`,
       user: true,
     });
   } catch (error) {
