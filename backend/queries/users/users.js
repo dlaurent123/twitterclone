@@ -92,7 +92,7 @@ const deleteUser = async (req, res) => {
 const isExisting = async (req, res, next) => {
   const key = Object.keys(req.body)[0];
   const value = req.body[key];
-  console.log(key, value);
+
   try {
     await db.one(`SELECT * FROM users WHERE ${key}=$1`, [value]);
     res.status(200).json({

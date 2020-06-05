@@ -3,38 +3,58 @@ import Button from "../../../login/button/Button";
 import FormTop from "./FormTop";
 import FormTerms from "./FormTerms";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { formState } from "../../../form/FormSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { formState, clearForm } from "../../../form/FormSlice";
 import { useHistory } from "react-router-dom";
+import { signUp } from "../../../../util/firebaseFunctions";
+import { apiUrl } from "../../../../util/apiUrl";
+import { updateModal } from "../../modalSlice";
 
-const Page2FormCont = ({ setValues }) => {
+const Page2FormCont = () => {
+  const dispatch = useDispatch();
+
+  const API = apiUrl();
   const state = useSelector(formState);
+  const {
+    userName,
+    email,
+    name,
+    birthMonth,
+    birthDay,
+    birthYear,
+    password,
+  } = state;
   const history = useHistory();
 
   const submit = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.post("/api/users/check", {
-        user_name: state.userName,
+      let res = await axios.post(`${API}/api/users/check`, {
+        user_name: userName,
       });
       if (res.data.user) {
         alert(res.data.message);
       } else {
-        await axios.post("/api/users", {
-          id: 30,
-          userName: state.userName,
-          email: state.email,
-          name: state.name,
-          dob: `${state.birthMonth} ${state.birthDay} ${state.birthYear}`,
+        let res = await signUp(email, password);
+        await axios.post(`${API}/api/users`, {
+          id: res.user.uid,
+          userName,
+          email,
+          name,
+          dob: `${birthMonth} ${birthDay} ${birthYear}`,
         });
-        history.push("/feed");
+        dispatch(updateModal());
+        dispatch(clearForm());
+        history.push("/home");
       }
-    } catch (error) {}
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
     <div className="form2Cont">
-      <FormTop setValues={(setValues.setUserName, setValues.setPassword)} />
+      <FormTop />
       <FormTerms />
       <Button
         func={submit}

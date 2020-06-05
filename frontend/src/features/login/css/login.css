@@ -169,3 +169,11 @@ span.dot {
   align-self: center;
   color: #8a8f95;
 }
+
+#err {
+  color: red;
+  font-size: 15px;
+  padding: unset;
+  margin: unset;
+  font-weight: 100;
+}

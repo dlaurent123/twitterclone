@@ -20,7 +20,12 @@ const FormTop = ({ password }) => {
         </div>
       </div>
       <div className="cont1">
-        <Input type={"password"} value={password} spanName={"Password"} />
+        <Input
+          keyName={"password"}
+          type={"password"}
+          value={password}
+          spanName={"Password"}
+        />
       </div>
     </>
   );

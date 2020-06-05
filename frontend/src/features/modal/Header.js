@@ -7,26 +7,20 @@ import cancel from "../../images/cross.png";
 import { clearForm, formState } from "../form/FormSlice";
 import Button from "../login/button/Button";
 import axios from "axios";
+import { apiUrl } from "../../util/apiUrl";
 
 const Header = () => {
+  const API = apiUrl();
   const dispatch = useDispatch();
   const [isDisabled, setIsDisabled] = useState(true);
   const state = useSelector(formState);
+  const { name, email, birthMonth, birthDay, birthYear } = state;
+
   useEffect(() => {
-    state.name &&
-    state.email &&
-    state.birthMonth &&
-    state.birthDay &&
-    state.birthYear
+    name && email && birthMonth && birthDay && birthYear
       ? setIsDisabled(false)
       : setIsDisabled(true);
-  }, [
-    state.name,
-    state.email,
-    state.birthMonth,
-    state.birthYear,
-    state.birthDay,
-  ]);
+  }, [name, email, birthMonth, birthYear, birthDay]);
 
   const onClick = () => {
     dispatch(updateModal());
@@ -34,10 +28,10 @@ const Header = () => {
   };
   const onNext = async () => {
     try {
-      const res = await axios.post("/api/users/check", {
-        email: state.email,
+      const res = await axios.post(`${API}/api/users/check`, {
+        email,
       });
-      console.log(res);
+
       if (res.data.user) {
         alert(res.data.message);
       } else {
@@ -59,7 +53,12 @@ const Header = () => {
             <img alt="img" className="birdImg" src={image}></img>
           </div>
           <div className="nextButton">
-            <Button func={onNext} isDisabled={isDisabled} text={"Next"} />
+            <Button
+              form={"form1"}
+              func={onNext}
+              isDisabled={isDisabled}
+              text={"Next"}
+            />
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ const SignUpForm = () => {
   }, [state.name, state.email]);
 
   return (
-    <form className="loginForm">
+    <form id="form1" className="loginForm">
       <div className="cont1">
         <Input
           required

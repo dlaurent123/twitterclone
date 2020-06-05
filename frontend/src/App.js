@@ -3,19 +3,25 @@ import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import Home from "./features/home/Home";
 import LogIn from "./features/login/LogIn";
-// import SignUp from "./features/signUp/SignUp";
+import Explore from "./features/explore/Explore";
 
 function App() {
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Explore />
         </Route>
+
         <Route path="/login">
           <LogIn />
         </Route>
-        <Home />
+
+        <Route path="/home">
+          <Home />
+        </Route>
+
+        <Explore />
       </Switch>
     </div>
   );

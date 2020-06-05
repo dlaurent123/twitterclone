@@ -1,15 +1,17 @@
 import React from "react";
+import { logOut } from "../../util/firebaseFunctions";
 import { useHistory } from "react-router-dom";
-const Home = () => {
-  let history = useHistory();
 
-  const redirect = () => {
-    history.push("/signup");
+const Home = () => {
+  const history = useHistory();
+  const lo = () => {
+    logOut();
+    history.push("/login");
   };
   return (
     <div>
       Home
-      <button onClick={redirect}>Sign Up</button>
+      <button onClick={lo}>Log Out</button>
     </div>
   );
 };
