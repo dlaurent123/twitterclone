@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import firebase from "../firebase";
 import { getFirebaseIdToken } from "../util/firebaseFunctions";
-import gif from "../images/whitebird.png";
+import gif from "../images/blue.png";
 
 export const AuthContext = createContext();
 

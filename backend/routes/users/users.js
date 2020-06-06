@@ -9,14 +9,15 @@ const {
   updateUser,
   isExisting,
 } = require("../../queries/users/users");
+const { checkFirebaseToken } = require("../../middleWare/auth");
 
-users.use("/posts", usersPostsRouter);
-users.use("/follows/:id", usersFollowsRouter);
+users.use("/posts", checkFirebaseToken, usersPostsRouter);
+users.use("/follows/:id", checkFirebaseToken, usersFollowsRouter);
 
 users.post("/check", isExisting);
-users.get("/:id", getUser);
+users.get("/:id", checkFirebaseToken, getUser);
 users.post("/", createUser);
-users.patch("/", updateUser);
-users.delete("/", deleteUser);
+users.patch("/", checkFirebaseToken, updateUser);
+users.delete("/", checkFirebaseToken, deleteUser);
 
 module.exports = users;
