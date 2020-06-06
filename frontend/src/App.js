@@ -1,29 +1,33 @@
 import React from "react";
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import Home from "./features/home/Home";
 import LogIn from "./features/login/LogIn";
 import Explore from "./features/explore/Explore";
+import AuthProvider from "./providers/AuthContext";
+import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
 
 function App() {
   return (
-    <div className="App">
-      <Switch>
-        <Route exact path="/">
+    <AuthProvider>
+      <div className="App">
+        <Switch>
+          <AuthRoute exact path="/explore">
+            <Explore />
+          </AuthRoute>
+
+          <AuthRoute path="/login">
+            <LogIn />
+          </AuthRoute>
+
+          <ProtectedRoute path="/home">
+            <Home />
+          </ProtectedRoute>
+
           <Explore />
-        </Route>
-
-        <Route path="/login">
-          <LogIn />
-        </Route>
-
-        <Route path="/home">
-          <Home />
-        </Route>
-
-        <Explore />
-      </Switch>
-    </div>
+        </Switch>
+      </div>
+    </AuthProvider>
   );
 }
 

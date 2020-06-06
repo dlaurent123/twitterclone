@@ -8,7 +8,19 @@ export const AuthRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) => {
-        return !currentUser ? children : <Redirect to="/" />;
+        return !currentUser ? children : <Redirect to="/home" />;
+      }}
+    />
+  );
+};
+
+export const ProtectedRoute = ({ children, ...rest }) => {
+  const { currentUser } = useContext(AuthContext);
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => {
+        return currentUser ? children : <Redirect to="/login" />;
       }}
     />
   );
