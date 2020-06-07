@@ -4,6 +4,7 @@ import Button from "../login/button/Button";
 import settings from "../../images/settings.png";
 import Input from "../login/input/Input";
 import search from "../../images/search.png";
+import back from "../../images/left-arrow.png";
 
 const Explore = () => {
   return (
@@ -13,18 +14,20 @@ const Explore = () => {
           <div className="headContainer">
             {/* contents start */}
             <div className="headContents">
-              <div className="search">
-                {/* <div>
-                  <img alt="" src={search} />
-                </div> */}
-                <Input
-                  imgDivId={"searchImgDiv"}
-                  src={search}
-                  containerId={"searcInputCont"}
-                  id={"searchInput"}
-                  placeholder={"Search Twitter"}
-                  divId={"searchDiv"}
-                />
+              <div className="imgAndSearch">
+                <div className="backDivv">
+                  <img id="searchBack" alt="" src={back} />
+                </div>
+                <div className="search">
+                  <Input
+                    imgDivId={"searchImgDiv"}
+                    src={search}
+                    containerId={"searcInputCont"}
+                    id={"searchInput"}
+                    placeholder={"Search Twitter"}
+                    divId={"searchDiv"}
+                  />
+                </div>
               </div>
 
               <div className="headButts">
