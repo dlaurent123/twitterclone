@@ -13,6 +13,7 @@ import { afterOpenModal, customStyles } from "../modal/helpers/helpers";
 import { pageState } from "../page/pageSlice";
 import Modal from "react-modal";
 import { useHistory } from "react-router-dom";
+import Main from "./main/Main";
 
 const Explore = () => {
   const dispatch = useDispatch();
@@ -73,7 +74,7 @@ const Explore = () => {
           </div>
         </header>
       </div>
-
+      <Main />
       <div className="signUpDiv">
         <div className="modalDiv">
           <Modal

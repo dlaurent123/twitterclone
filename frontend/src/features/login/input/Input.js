@@ -13,32 +13,35 @@ const Input = ({
   id,
   containerId,
   imgDivId,
+  wrapId,
 }) => {
   const dispatch = useDispatch();
 
   return (
     <div id={divId} className="inputDiv">
-      <label>
-        <div className="spanDiv">
-          <span className="input">{spanName}</span>
-        </div>
-        <div id={containerId} className="inputCont">
-          <div id={imgDivId}>
-            <img alt="" src={src} />
+      <div className={wrapId}>
+        <label>
+          <div className="spanDiv">
+            <span className="input">{spanName}</span>
           </div>
-          <input
-            id={id}
-            placeholder={placeholder}
-            type={type}
-            required
-            value={value}
-            onChange={(e) =>
-              dispatch(updateForm({ [keyName]: e.target.value }))
-            }
-            className="loginInput"
-          />
-        </div>
-      </label>
+          <div id={containerId} className="inputCont">
+            <div id={imgDivId}>
+              <img alt="" src={src} />
+            </div>
+            <input
+              id={id}
+              placeholder={placeholder}
+              type={type}
+              required
+              value={value}
+              onChange={(e) =>
+                dispatch(updateForm({ [keyName]: e.target.value }))
+              }
+              className="loginInput"
+            />
+          </div>
+        </label>
+      </div>
       <div className="other"></div>
     </div>
   );

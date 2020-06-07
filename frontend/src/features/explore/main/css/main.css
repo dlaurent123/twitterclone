@@ -1,0 +1,166 @@
+.mainDiv {
+  display: flex;
+  width: 990px;
+
+  -webkit-box-align: stretch;
+  align-items: stretch;
+
+  background-color: rgba(0, 0, 0, 0);
+
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  flex-direction: row;
+
+  min-height: 100%;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homeFeedDiv {
+  width: 990px;
+  display: flex;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+
+  background-color: rgba(0, 0, 0, 0);
+
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  flex-direction: row;
+
+  min-height: 100%;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mainLoginSignUp {
+  width: 990px;
+  /* width: max-content; */
+
+  -webkit-box-align: stretch;
+  align-items: stretch;
+
+  background-color: rgba(0, 0, 0, 0);
+
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  flex-direction: row;
+
+  min-height: 100%;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.LScontents {
+  display: flex;
+
+  margin-top: 63px;
+  padding-bottom: 59px;
+  /* padding-top: 10px;
+   */
+}
+
+.LScontainer {
+  display: flex;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 15px;
+  background-color: rgb(21, 32, 43);
+
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  border-bottom-color: rgb(56, 68, 77);
+  border-left-color: rgb(56, 68, 77);
+  border-right-color: rgb(56, 68, 77);
+  border-top-color: rgb(56, 68, 77);
+
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-top-style: solid;
+}
+
+.L/Scontainer section {
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.mainContents {
+  display: flex;
+  margin: auto;
+  height: 100vh;
+  width: 100vw;
+}
+
+.mainContainer {
+  height: 100vh;
+  width: inherit;
+}
+
+.heroDiv img {
+  height: 238px;
+}
+
+.LScontainer section {
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.heroTitle {
+  margin-top: 15px;
+  text-align: start;
+  margin-bottom: 5px;
+
+  font-weight: 800;
+
+  font-size: 19px;
+
+  color: rgb(255, 255, 255);
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
+
+  overflow-wrap: break-word;
+
+  min-width: 0px;
+
+  line-height: 1.3125;
+}

@@ -1,0 +1,88 @@
+#exploreMailDiv {
+  padding: unset;
+}
+
+#explorePassDiv {
+  padding: unset;
+}
+
+#eEContainerId {
+  flex-direction: unset;
+}
+
+#ePContainerId {
+  flex-direction: unset;
+}
+
+.pWrap {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.eWrap {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.forgotP {
+  display: flex;
+}
+.forgotP span {
+  font-size: 15px;
+  color: #1b95e0;
+  margin: unset;
+  cursor: pointer;
+}
+
+.forgotP span:hover {
+  text-decoration: underline;
+}
+
+.or {
+  display: flex;
+  justify-content: center;
+}
+.or span {
+  color: grey;
+  font-size: 15px;
+  margin: unset;
+}
+
+#eLogIn button {
+  background-color: rgba(0, 0, 0, 0);
+  padding-left: 1em;
+  padding-right: 1em;
+  border-color: rgb(29, 161, 242);
+  color: rgb(29, 161, 242);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 9999px;
+  min-width: calc(48.3px);
+  min-height: 30px;
+  outline-style: none;
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.2s;
+  justify-content: center;
+  margin-left: unset;
+  margin-right: unset;
+}
+
+#eLogIn button:hover {
+  background-color: #162d3f;
+}
+
+#eSignUp button {
+  padding-left: 1em;
+  padding-right: 1em;
+  min-height: 30px;
+  margin-left: unset;
+  margin-right: unset;
+}
+
+#eSignUp {
+  padding: unset;
+}
+
+#eLogIn {
+  padding: unset;
+}
