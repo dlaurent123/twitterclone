@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
-import firebase from "firebase";
+import firebase from "../firebase";
 import { getFirebaseIdToken } from "../util/firebaseFunctions";
+import gif from "../images/blue.png";
 
 export const AuthContext = createContext();
 
@@ -27,9 +28,14 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged(updateUser);
     return unsubscribe;
-  });
+  }, []);
 
-  if (loading) return <div>...Loading</div>;
+  if (loading)
+    return (
+      <div className="loading">
+        <img className="bird" alt="" src={gif} />
+      </div>
+    );
   return (
     <AuthContext.Provider value={{ currentUser, token }}>
       {children}

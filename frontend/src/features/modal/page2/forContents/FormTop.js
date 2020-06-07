@@ -1,21 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import Input from "../../../login/input/Input";
+import { useSelector } from "react-redux";
+import { formState } from "../../../form/FormSlice";
 
-const FormTop = () => {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+const FormTop = ({ password }) => {
+  let state = useSelector(formState);
 
   return (
     <>
       <div className="cont1">
-        <Input value={userName} setValue={setUserName} spanName={"User Name"} />
+        <Input
+          value={state.userName ? state.userName : ""}
+          spanName={"User Name"}
+          keyName={"userName"}
+        />
         <div className="countCont">
           <div className="spaceCont"></div>
           <div className="countDiv"></div>
         </div>
       </div>
       <div className="cont1">
-        <Input value={password} setValue={setPassword} spanName={"Password"} />
+        <Input
+          keyName={"password"}
+          type={"password"}
+          value={password}
+          spanName={"Password"}
+        />
       </div>
     </>
   );

@@ -7,14 +7,17 @@ const {
   createUser,
   deleteUser,
   updateUser,
+  isExisting,
 } = require("../../queries/users/users");
+const { checkFirebaseToken } = require("../../middleWare/auth");
 
-users.use("/posts", usersPostsRouter);
-users.use("/follows", usersFollowsRouter);
+users.use("/posts", checkFirebaseToken, usersPostsRouter);
+users.use("/follows/:id", checkFirebaseToken, usersFollowsRouter);
 
-users.get("/id", getUser);
+users.post("/check", isExisting);
+users.get("/:id", checkFirebaseToken, getUser);
 users.post("/", createUser);
-users.patch("/", updateUser);
-users.delete("/", deleteUser);
+users.patch("/", checkFirebaseToken, updateUser);
+users.delete("/", checkFirebaseToken, deleteUser);
 
 module.exports = users;

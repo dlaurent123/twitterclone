@@ -1,8 +1,11 @@
 import React from "react";
 import Select from "../../../select/Select";
 import { days, years, months } from "../../helpers/helpers";
+import { useSelector } from "react-redux";
+import { formState } from "../../../form/FormSlice";
 
 const FormFooter = () => {
+  let state = useSelector(formState);
   return (
     <div className="formFooter">
       <div className="text">
@@ -17,9 +20,27 @@ const FormFooter = () => {
 
       <div className="formSelects">
         <div className="selectDCont">
-          <Select id={"sel1"} spanName={"Month"} optionValues={months} />
-          <Select id={"sel2"} spanName={"Day"} optionValues={days} />
-          <Select id={"sel3"} spanName={"Year"} optionValues={years} />
+          <Select
+            value={state.birthMonth ? state.birthMonth : " "}
+            id={"sel1"}
+            spanName={"Month"}
+            optionValues={months}
+            keyName={"birthMonth"}
+          />
+          <Select
+            value={state.birthDay ? state.birthDay : " "}
+            id={"sel2"}
+            spanName={"Day"}
+            optionValues={days}
+            keyName={"birthDay"}
+          />
+          <Select
+            value={state.birthYear ? state.birthYear : " "}
+            id={"sel3"}
+            spanName={"Year"}
+            optionValues={years}
+            keyName={"birthYear"}
+          />
         </div>
       </div>
     </div>

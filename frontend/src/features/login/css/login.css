@@ -151,6 +151,7 @@ h1 {
     Ubuntu, "Helvetica Neue", sans-serif;
   text-decoration: unset;
   margin: unset;
+  cursor: pointer;
 }
 .links span:hover {
   text-decoration: underline;
@@ -167,4 +168,12 @@ span.dot {
   font-size: 7px;
   align-self: center;
   color: #8a8f95;
+}
+
+#err {
+  color: red;
+  font-size: 15px;
+  padding: unset;
+  margin: unset;
+  font-weight: 100;
 }

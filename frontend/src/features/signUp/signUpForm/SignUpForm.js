@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Input from "../../login/input/Input";
 import FormFooter from "./formFooter/FormFooter";
+import { useSelector } from "react-redux";
+import { formState } from "../../form/FormSlice";
 
 const SignUpForm = () => {
-  const [name, setname] = useState("");
-  const [email, setemail] = useState("");
-  const [isDisabled, setIsDisabled] = useState(true);
   const [count, setCount] = useState(0);
+  const state = useSelector(formState);
 
   useEffect(() => {
-    name && email ? setIsDisabled(false) : setIsDisabled(true);
-    setCount(name.length);
-  }, [name, email]);
-
-  const onSubmit = () => {};
+    if (state.name !== undefined) {
+      setCount(state.name.length);
+    }
+  }, [state.name, state.email]);
 
   return (
-    <form onSubmit={onSubmit} className="loginForm">
+    <form id="form1" className="loginForm">
       <div className="cont1">
-        <Input value={name} setValue={setname} spanName={"Name"} />
+        <Input
+          required
+          value={state.name ? state.name : ""}
+          spanName={"Name"}
+          keyName={"name"}
+        />
         <div className="countCont">
           <div className="spaceCont"></div>
           <div className="countDiv">
@@ -27,7 +31,12 @@ const SignUpForm = () => {
         </div>
       </div>
       <div className="cont1">
-        <Input value={email} setValue={setemail} spanName={"Email"} />
+        <Input
+          type={"email"}
+          value={state.email ? state.email : ""}
+          spanName={"Email"}
+          keyName={"email"}
+        />
       </div>
       <div className="linkInsert">
         <span>Use phone instead</span>

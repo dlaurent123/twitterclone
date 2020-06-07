@@ -1,9 +1,9 @@
 const db = require("../../database/index");
 
 const getUser = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   try {
-    let user = await db.one("SELECT * FROM users WHERE id = $1", [id]);
+    let user = await db.one("SELECT * FROM users WHERE user_id = $1", [id]);
     if (user) {
       res.status(200).json({
         status: 200,
@@ -89,4 +89,20 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { getUser, createUser, updateUser, deleteUser };
+const isExisting = async (req, res, next) => {
+  const key = Object.keys(req.body)[0];
+  const value = req.body[key];
+
+  try {
+    await db.one(`SELECT * FROM users WHERE ${key}=$1`, [value]);
+    res.status(200).json({
+      status: 200,
+      message: `${key} already exists`,
+      user: true,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getUser, createUser, updateUser, deleteUser, isExisting };
