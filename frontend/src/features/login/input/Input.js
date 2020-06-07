@@ -2,17 +2,33 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { updateForm } from "../../form/FormSlice";
 
-const Input = ({ value, spanName, type, keyName }) => {
+const Input = ({
+  src,
+  value,
+  spanName,
+  type,
+  keyName,
+  divId,
+  placeholder,
+  id,
+  containerId,
+  imgDivId,
+}) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="inputDiv">
+    <div id={divId} className="inputDiv">
       <label>
         <div className="spanDiv">
           <span className="input">{spanName}</span>
         </div>
-        <div className="inputCont">
+        <div id={containerId} className="inputCont">
+          <div id={imgDivId}>
+            <img alt="" src={src} />
+          </div>
           <input
+            id={id}
+            placeholder={placeholder}
             type={type}
             required
             value={value}
