@@ -85,7 +85,7 @@ VALUES(1, 1, 3),
 
 INSERT INTO posts
 VALUES(1, 'HELLO WORLD', NULL, 1),
-    (2, 'HELLO GIRL', NULL, 2);
+    (2, 'HELLO!!!!', NULL, 2);
 
 INSERT INTO likes
 VALUES(1, 1, 1),
