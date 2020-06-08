@@ -25,6 +25,7 @@ const Form = () => {
   return (
     <form onSubmit={(e) => dispatch(logInFunction(e))}>
       <Input
+        // value={loginE}
         keyName={"loginE"}
         wrapId={"eWrap"}
         containerId={"eEContainerId"}
@@ -33,6 +34,8 @@ const Form = () => {
       />
       {err ? <span id="err">{err}</span> : null}
       <Input
+        type={"password"}
+        // value={loginP}
         keyName={"loginP"}
         wrapId={"pWrap"}
         containerId={"ePContainerId"}
@@ -42,7 +45,12 @@ const Form = () => {
       <div className="forgotP">
         <span>Forgot Password?</span>
       </div>
-      <Button buttonId={"eLogIn"} bDivId={"eLogIn"} text={"Log in"} />
+      <Button
+        type={"submit"}
+        buttonId={"eLogIn"}
+        bDivId={"eLogIn"}
+        text={"Log in"}
+      />
       <div className="or">
         <span>or</span>
       </div>

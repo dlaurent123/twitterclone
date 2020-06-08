@@ -1,8 +1,8 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import modalIsOpen from "../features/modal/modalSlice";
 import page from "../features/page/pageSlice";
 import form from "../features/form/FormSlice";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 import err from "../features/err/errSlice";
 
 const reducer = {
@@ -14,5 +14,5 @@ const reducer = {
 
 export default configureStore({
   reducer,
-  middleware: [...getDefaultMiddleware(), logger],
+  // middleware: [...getDefaultMiddleware(), logger],
 });
