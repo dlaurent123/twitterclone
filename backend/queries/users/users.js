@@ -105,7 +105,7 @@ const isExisting = async (req, res, next) => {
   }
 };
 
-const getEmail = async (req, res) => {
+const getEmail = async (req, res, next) => {
   const { username } = req.params;
   try {
     let email = await db.one("SELECT email FROM users WHERE user_name= $1", [
@@ -113,7 +113,7 @@ const getEmail = async (req, res) => {
     ]);
     res.status(200).json({ status: 200, message: "email returned", email });
   } catch (error) {
-    res.status(404).json({ status: 404, message: "username does not exist" });
+    next(error);
   }
 };
 

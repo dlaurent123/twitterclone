@@ -13,9 +13,13 @@ export const logInFunction = (e) => async (dispatch, getState) => {
   if (!loginE.includes("@")) {
     try {
       let res = await axios.get(`${API}/api/users/login/${loginE}`);
-      let email = res.data.email.email;
-      await logIn(email, loginP);
-      dispatch(clearForm());
+      if (res.data.user === false) {
+        throw res.data;
+      } else {
+        let email = res.data.email.email;
+        await logIn(email, loginP);
+        dispatch(clearForm());
+      }
     } catch (error) {
       dispatch(setErr(error.message));
     }
