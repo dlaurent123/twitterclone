@@ -6,11 +6,9 @@ const Home = () => {
   const history = useHistory();
   const lo = () => {
     logOut();
-    history.push("/login");
   };
   return (
     <div>
-      Home
       <button onClick={lo}>Log Out</button>
     </div>
   );
