@@ -25,17 +25,15 @@ const Form = () => {
   return (
     <form onSubmit={(e) => dispatch(logInFunction(e))}>
       <Input
-        // value={loginE}
         keyName={"loginE"}
         wrapId={"eWrap"}
         containerId={"eEContainerId"}
         divId={"exploreMailDiv"}
-        spanName={"Phone, email, or username"}
+        spanName={"Email, or username"}
       />
       {err ? <span id="err">{err}</span> : null}
       <Input
         type={"password"}
-        // value={loginP}
         keyName={"loginP"}
         wrapId={"pWrap"}
         containerId={"ePContainerId"}

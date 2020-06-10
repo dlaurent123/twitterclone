@@ -20,7 +20,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={(e) => dispatch(logInFunction(e))} className="loginForm">
-      <Input keyName={"loginE"} spanName={"Phone, email, or username"} />
+      <Input keyName={"loginE"} spanName={"Email, or username"} />
       {err ? <span id="err">{err}</span> : null}
       <Input type={"password"} keyName={"loginP"} spanName={"Password"} />
       <Button type={"submit"} isDisabled={isDisabled} text={"Log on"} />
