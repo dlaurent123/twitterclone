@@ -4,6 +4,7 @@ import settings from "../../../../images/settings.png";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateModal } from "../../../modal/modalSlice";
+import { demoLogin } from "../../../../util/logInFunction";
 
 const HeadButtons = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,12 @@ const HeadButtons = () => {
 
   return (
     <div className="headButts">
+      <Button
+        func={() => dispatch(demoLogin())}
+        bDivId={"exploreLogIn"}
+        buttonId={"exploreLogIn"}
+        text={"Demo Log in"}
+      />
       <Button
         func={login}
         bDivId={"exploreLogIn"}

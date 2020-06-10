@@ -105,4 +105,23 @@ const isExisting = async (req, res, next) => {
   }
 };
 
-module.exports = { getUser, createUser, updateUser, deleteUser, isExisting };
+const getEmail = async (req, res, next) => {
+  const { username } = req.params;
+  try {
+    let email = await db.one("SELECT email FROM users WHERE user_name= $1", [
+      username,
+    ]);
+    res.status(200).json({ status: 200, message: "email returned", email });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = {
+  getUser,
+  createUser,
+  updateUser,
+  deleteUser,
+  isExisting,
+  getEmail,
+};

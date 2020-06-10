@@ -23,8 +23,9 @@ function App() {
           <ProtectedRoute path="/home">
             <Home />
           </ProtectedRoute>
-
-          <Explore />
+          <AuthRoute path="/">
+            <Explore />
+          </AuthRoute>
         </Switch>
       </div>
     </AuthProvider>
