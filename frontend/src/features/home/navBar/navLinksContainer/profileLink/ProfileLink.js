@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import profileImg from "../../../../../images/profilewhite.png";
 
 const ProfileLink = () => {
   return (
@@ -7,7 +8,7 @@ const ProfileLink = () => {
       <div className="linkItem">
         <div className="linkContainer">
           <div className="homeImg">
-            <img className="bird" alt="" />
+            <img id="profileImg" className="bird" alt="" src={profileImg} />
           </div>
           <div className="spanHolder">
             <span>Profile</span>

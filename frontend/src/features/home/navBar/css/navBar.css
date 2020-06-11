@@ -99,5 +99,13 @@
   text-decoration: unset;
 }
 .navy span {
-  color: red;
+  color: #1b95e0;
+}
+
+a {
+  text-decoration: unset;
+}
+
+#profileImg img:hover {
+  src: url("../../../../images/profileblue.png");
 }

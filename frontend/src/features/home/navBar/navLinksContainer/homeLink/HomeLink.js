@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const HomeLink = () => {
   return (
-    <NavLink activeClassName="navy" to="/home">
+    <NavLink className="navv" activeClassName="navy" to="/home">
       <div className="linkItem">
         <div className="linkContainer">
           <div className="homeImg">
