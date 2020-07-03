@@ -1,17 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import birdHome from "../../../../images/whitebird.png";
+// import { NavLink } from "react-router-dom";
 import HomeLink from "./homeLink/HomeLink";
 import ProfileLink from "./profileLink/ProfileLink";
+// import Button from "../../../login/button/Button";
+import "../css/navBar.css";
 
 const NavLinksContainer = () => {
   return (
     <div className="navLinksContainer">
-      <NavLink to="/home">
-        <div className="homeBirdDiv">
-          <img className="bird" alt="" src={birdHome} />
-        </div>
-      </NavLink>
       <div className="restLinks">
         <HomeLink />
         <ProfileLink />

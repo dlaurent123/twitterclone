@@ -24,7 +24,7 @@
   flex-direction: column;
   overflow-y: auto;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   height: 100%;
   width: 275px;
   padding-left: 20px;
@@ -35,6 +35,8 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .homeBirdDiv img:hover {
@@ -108,4 +110,14 @@ a {
 
 #profileImg img:hover {
   src: url("../../../../images/profileblue.png");
+}
+
+#tweet,
+#tweet button {
+  margin: unset;
+  padding: unset;
+}
+#tweet {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
