@@ -122,3 +122,18 @@ textarea::placeholder {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Ubuntu, "Helvetica Neue", sans-serif;
 }
+
+.tweetText form {
+  display: flex;
+}
+
+.tweetCount {
+  display: flex;
+}
+
+.tweetCount span {
+  margin: unset;
+  color: #9197a3;
+  font-size: 20px;
+  align-self: center;
+}

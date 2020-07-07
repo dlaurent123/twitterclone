@@ -7,7 +7,7 @@ import "./Css/tweetmodal.css";
 
 const TweetModal = () => {
   return (
-    <Modal style={modalStyles} isOpen={true}>
+    <Modal ariaHideApp={false} style={modalStyles} isOpen={true}>
       <div className="tweetCancel">
         <div className="cancelContents">
           <div className="cancelContainer">
