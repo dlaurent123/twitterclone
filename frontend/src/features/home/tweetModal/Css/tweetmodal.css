@@ -38,7 +38,8 @@
 }
 
 .tweetAvi img {
-  height: 50px;
+  height: 40px;
+  padding-top: 5px;
 }
 
 .tweetAvi {
@@ -65,10 +66,59 @@
 .tweetBodyContent {
   display: flex;
   padding-left: 5px;
+  padding-right: 5px;
   height: 100%;
   flex-grow: 1;
 }
 
-tweetText {
+.tweetText {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.tweetContent {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tweetFooter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweetAddOns {
+  flex-grow: 0.8;
+}
+
+.tweetModalButtonContainer {
+  flex-grow: 0.1;
+}
+
+#tweetModalButton {
+  padding: unset;
+}
+
+.tweetText textarea {
+  font: 20px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
+  flex-grow: 1;
+  background: transparent;
+  resize: unset;
+  border-color: transparent;
+  color: white;
+  font-weight: 400;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+textarea::placeholder {
+  color: #9197a3;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
 }
