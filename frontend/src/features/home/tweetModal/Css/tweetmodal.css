@@ -36,3 +36,39 @@
   border-radius: 99999px;
   background-color: #162d3f;
 }
+
+.tweetAvi img {
+  height: 50px;
+}
+
+.tweetAvi {
+  margin-right: 10px;
+}
+
+.tweetBody {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tweetBodyContainer {
+  padding-left: 15px;
+  padding-right: 15px;
+  height: auto;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.tweetBodyContent {
+  display: flex;
+  padding-left: 5px;
+  height: 100%;
+  flex-grow: 1;
+}
+
+tweetText {
+  flex-grow: 1;
+}

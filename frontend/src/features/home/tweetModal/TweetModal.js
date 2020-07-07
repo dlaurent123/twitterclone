@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import { modalStyles } from "../../modal/helpers/helpers";
 import cancel from "../../../images/close1.png";
+import TweetBody from "./tweetBody/TweetBody";
 import "./Css/tweetmodal.css";
 
 const TweetModal = () => {
@@ -16,6 +17,7 @@ const TweetModal = () => {
           </div>
         </div>
       </div>
+      <TweetBody />
     </Modal>
   );
 };
