@@ -6,8 +6,14 @@ import NavLogOut from "./navLogout/NavLogOut";
 import { NavLink } from "react-router-dom";
 import Button from "../../login/button/Button";
 import TweetModal from "../tweetModal/TweetModal";
+import { updateModal } from "../../modal/modalSlice";
+import { useDispatch } from "react-redux";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const onClick = () => {
+    dispatch(updateModal());
+  };
   return (
     <>
       <header className="navHeader">
@@ -20,7 +26,7 @@ const NavBar = () => {
                 </div>
               </NavLink>
               <NavLinksContainer />
-              <Button bDivId={"tweet"} text={"Tweet"} />
+              <Button func={onClick} bDivId={"tweet"} text={"Tweet"} />
               <NavLogOut />
             </div>
           </div>

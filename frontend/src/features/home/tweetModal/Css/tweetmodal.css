@@ -35,6 +35,7 @@
 .tweetCancelImgCont:hover {
   border-radius: 99999px;
   background-color: #162d3f;
+  cursor: pointer;
 }
 
 .tweetAvi img {
