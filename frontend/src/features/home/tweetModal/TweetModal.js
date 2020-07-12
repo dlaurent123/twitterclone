@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-modal";
 import { modalStyles } from "../../modal/helpers/helpers";
 import cancel from "../../../images/close1.png";
@@ -12,7 +12,7 @@ const TweetModal = () => {
   const dispatch = useDispatch();
   return (
     <Modal ariaHideApp={false} style={modalStyles} isOpen={isOpen}>
-      <div onClick={(e) => dispatch(updateModal())} className="tweetCancel">
+      <div onClick={() => dispatch(updateModal())} className="tweetCancel">
         <div className="cancelContents">
           <div className="cancelContainer">
             <div className="tweetCancelImgCont">

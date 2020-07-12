@@ -9,11 +9,10 @@ export const tweetFunction = (id) => async (dispatch, getState) => {
   const API = apiUrl();
 
   try {
-    // await axios.post(`${API}/api/posts`, {
-    //   postBody: tweet,
-    //   posterId: id,
-    // });
-    console.log(tweet, id);
+    await axios.post(`${API}/api/posts`, {
+      postBody: tweet,
+      posterId: id,
+    });
     dispatch(clearForm);
     dispatch(updateModal());
   } catch (error) {
