@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
@@ -7,8 +7,14 @@ import {
   userState,
   updateUser,
 } from "../loggedInUserInfo/loggedInUserInfoSlice";
+import NavBar from "./navBar/NavBar";
+import { Switch } from "react-router-dom";
+import { ProtectedRoute } from "../../util/routeUtil";
+import gif from "../../images/blue.png";
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [apiCalls, setApiCalls] = useState(0);
   const API = apiUrl();
   const { currentUser, token } = useContext(AuthContext);
   const state = useSelector(userState);
@@ -25,17 +31,34 @@ const Home = () => {
           },
         });
         dispatch(updateUser(res.data.user));
-        debugger;
+        setIsLoading(false);
       } catch (error) {
+        if (apiCalls > 1) {
+          setIsLoading(false);
+        } else {
+          getUserInfo();
+          setApiCalls(1);
+          setIsLoading(false);
+        }
         console.log(error);
       }
     };
     getUserInfo();
-  }, [API, currentUser.id, token, dispatch]);
+  }, [API, currentUser.id, token, dispatch, apiCalls]);
+
+  if (isLoading)
+    return (
+      <div className="loading">
+        <img className="bird" alt="" src={gif} />
+      </div>
+    );
 
   return (
     <div>
-      <h1>{state.user ? state.user.user_name : null}</h1>
+      <ProtectedRoute>
+        <NavBar />
+      </ProtectedRoute>
+      <Switch></Switch>
     </div>
   );
 };
