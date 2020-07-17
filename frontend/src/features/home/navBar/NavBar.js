@@ -16,7 +16,7 @@ const NavBar = () => {
   const onClick = () => {
     dispatch(updateModal());
   };
-  useEffect(() => {}, [state.user]);
+
   return state.user === null ? null : (
     <>
       <header className="navHeader">
