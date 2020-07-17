@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./css/navBar.css";
 import birdHome from "../../../images/whitebird.png";
 import NavLinksContainer from "./navLinksContainer/NavLinksContainer";
@@ -7,14 +7,17 @@ import { NavLink } from "react-router-dom";
 import Button from "../../login/button/Button";
 import TweetModal from "../tweetModal/TweetModal";
 import { updateModal } from "../../modal/modalSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { userState } from "../../loggedInUserInfo/loggedInUserInfoSlice";
 
 const NavBar = () => {
   const dispatch = useDispatch();
+  const state = useSelector(userState);
   const onClick = () => {
     dispatch(updateModal());
   };
-  return (
+  useEffect(() => {}, [state.user]);
+  return state.user === null ? null : (
     <>
       <header className="navHeader">
         <div className="navMain">

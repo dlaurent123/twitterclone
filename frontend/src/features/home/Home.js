@@ -33,18 +33,23 @@ const Home = () => {
         dispatch(updateUser(res.data.user));
         setIsLoading(false);
       } catch (error) {
+        console.log(error);
         if (apiCalls > 1) {
-          setIsLoading(false);
-        } else {
           getUserInfo();
-          setApiCalls(1);
+        } else {
+          alert("ERROR PLEASE REFRESH PAGE");
+          setApiCalls(0);
           setIsLoading(false);
         }
-        console.log(error);
       }
     };
-    getUserInfo();
+    const timer = setTimeout(() => {
+      getUserInfo();
+    }, 500);
+    return () => clearTimeout(timer);
   }, [API, currentUser.id, token, dispatch, apiCalls]);
+
+  console.log(state.user);
 
   if (isLoading)
     return (
@@ -53,14 +58,7 @@ const Home = () => {
       </div>
     );
 
-  return (
-    <div>
-      <ProtectedRoute>
-        <NavBar />
-      </ProtectedRoute>
-      <Switch></Switch>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Home;
