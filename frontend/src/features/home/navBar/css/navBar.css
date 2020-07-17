@@ -28,7 +28,10 @@
   height: 100%;
   width: 275px;
   padding-left: 20px;
-  padding-right: 20px;
+  /* padding-right: 20px; */
+  border-right-style: solid;
+  border-right-width: thin;
+  border-right-color: #38444d;
 }
 
 .navLinksContainer {
@@ -120,4 +123,5 @@ a {
 #tweet {
   margin-top: 5px;
   margin-bottom: 5px;
+  padding-right: 44px;
 }

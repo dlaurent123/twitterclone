@@ -73,7 +73,7 @@ export const signOutStyles = {
     display: "flex",
     flexDirection: "column",
     width: "300px",
-    boxShadow: "0px 1px 11px 0px aliceblue",
+    boxShadow: "hsl(210, 27%, 20%)4px -2px 26px 15px",
   },
   overlay: {
     backgroundColor: "none",
