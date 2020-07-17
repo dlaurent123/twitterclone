@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./css/navBar.css";
 import birdHome from "../../../images/whitebird.png";
 import NavLinksContainer from "./navLinksContainer/NavLinksContainer";

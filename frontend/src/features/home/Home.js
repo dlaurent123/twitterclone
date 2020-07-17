@@ -7,14 +7,12 @@ import {
   userState,
   updateUser,
 } from "../loggedInUserInfo/loggedInUserInfoSlice";
-import NavBar from "./navBar/NavBar";
-import { Switch } from "react-router-dom";
-import { ProtectedRoute } from "../../util/routeUtil";
 import gif from "../../images/blue.png";
+
+let calls = 0;
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [apiCalls, setApiCalls] = useState(0);
   const API = apiUrl();
   const { currentUser, token } = useContext(AuthContext);
   const state = useSelector(userState);
@@ -34,11 +32,14 @@ const Home = () => {
         setIsLoading(false);
       } catch (error) {
         console.log(error);
-        if (apiCalls > 1) {
+        console.log("hello");
+        if (calls === 0) {
+          calls += 1;
+          console.log("here");
           getUserInfo();
-        } else {
+        } else if (calls >= 1) {
           alert("ERROR PLEASE REFRESH PAGE");
-          setApiCalls(0);
+          calls = 0;
           setIsLoading(false);
         }
       }
@@ -47,14 +48,12 @@ const Home = () => {
       getUserInfo();
     }, 500);
     return () => clearTimeout(timer);
-  }, [API, currentUser.id, token, dispatch, apiCalls]);
-
-  console.log(state.user);
+  }, [API, currentUser.id, token, dispatch]);
 
   if (isLoading)
     return (
       <div className="loading">
-        <img className="bird" alt="" src={gif} />
+        <img id="loadBird" alt="" src={gif} />
       </div>
     );
 

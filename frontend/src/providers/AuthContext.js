@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
   if (loading)
     return (
       <div className="loading">
-        <img className="bird" alt="" src={gif} />
+        <img id="loadBird" alt="" src={gif} />
       </div>
     );
   return (
