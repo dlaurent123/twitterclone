@@ -43,7 +43,6 @@ export const modalStyles = {
     borderRadius: "14px 14px 14px 14px",
     maxWidth: "80vw",
     maxHeight: "90vh",
-    // height: "650px",
     minWidth: " 600px",
     flexShrink: "1",
     display: "flex",
@@ -51,5 +50,32 @@ export const modalStyles = {
   },
   overlay: {
     backgroundColor: "rgba(110, 118, 125, 0.4)",
+  },
+};
+
+export const signOutStyles = {
+  content: {
+    position: "absolute",
+    top: " 65%",
+    left: "6%",
+    right: "auto",
+    bottom: "auto",
+    border: "unset",
+    background: "rgb(21, 32, 43)",
+    borderRadius: "14px",
+    outline: " none",
+    padding: "unset",
+    minHeight: "169px",
+    maxWidth: " 360px",
+    maxHeight: "388px",
+    minWidth: "260px",
+    flexShrink: "1",
+    display: "flex",
+    flexDirection: "column",
+    width: "300px",
+    boxShadow: "0px 1px 11px 0px aliceblue",
+  },
+  overlay: {
+    backgroundColor: "none",
   },
 };
