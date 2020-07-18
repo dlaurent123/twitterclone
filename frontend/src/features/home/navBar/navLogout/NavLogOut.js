@@ -1,38 +1,18 @@
 import React, { useState } from "react";
 import "./css/navLogOut.css";
-import { logOut } from "../../../../util/firebaseFunctions";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  userState,
-  clearUser,
-} from "../../../loggedInUserInfo/loggedInUserInfoSlice";
+import { useSelector } from "react-redux";
+import { userState } from "../../../loggedInUserInfo/loggedInUserInfoSlice";
 import avi from "../../../../images/user.png";
 import down from "../../../../images/arrow.png";
-import Modal from "react-modal";
-import { signOutStyles } from "../../../modal/helpers/helpers";
+import LogOutModal from "./logOutModal/LogOutModal";
 
 const NavLogOut = () => {
   const state = useSelector(userState);
-  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-
-  const lo = () => {
-    logOut();
-    dispatch(clearUser());
-  };
 
   return (
     <>
-      <Modal
-        ariaHideApp={false}
-        ariaModal={true}
-        isOpen={isOpen}
-        // onAfterOpen={afterOpenModal}
-        style={signOutStyles}
-        contentLabel="Example Modal"
-      >
-        <button onClick={lo}>Logout</button>
-      </Modal>
+      <LogOutModal isOpen={isOpen} />
       <div onClick={() => setIsOpen(true)} className="navLogOut">
         <div className="navLogOutTop">
           <div className="navLogOutCont">
