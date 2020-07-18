@@ -35,7 +35,7 @@ export const logInFunction = (e) => async (dispatch, getState) => {
 
 export const demoLogin = () => async (dispatch, getState) => {
   try {
-    await logIn("user3@gmail.com", "testtest");
+    await logIn("dejones@gmail.com", "testtest");
     dispatch(clearForm());
   } catch (error) {
     dispatch(setErr(error.message));
