@@ -34,3 +34,20 @@
   background-color: #162d3f;
   cursor: pointer;
 }
+
+#navLogOutCont:hover {
+  background-color: unset;
+  cursor: unset;
+  border-radius: unset;
+}
+
+#navLogOutCont {
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: #38444d;
+}
+
+.logOutSection:hover {
+  background-color: #162d3f;
+  cursor: pointer;
+}
