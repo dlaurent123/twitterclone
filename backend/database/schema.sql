@@ -3,8 +3,8 @@
 
 -- \c twitter_db;
 
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS posts;
+-- DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS posts;
 -- DROP TABLE IF EXISTS likes;
 -- DROP TABLE IF EXISTS follows;
 -- DROP TABLE IF EXISTS hashtags;
