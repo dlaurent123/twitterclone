@@ -8,6 +8,7 @@ import {
   updateUser,
 } from "../loggedInUserInfo/loggedInUserInfoSlice";
 import gif from "../../images/blue.png";
+import { logOut } from "../../util/firebaseFunctions";
 
 let calls = 0;
 
@@ -31,16 +32,14 @@ const Home = () => {
         dispatch(updateUser(res.data.user));
         setIsLoading(false);
       } catch (error) {
-        console.log(error);
-        console.log("hello");
         if (calls === 0) {
           calls += 1;
-          console.log("here");
           getUserInfo();
         } else if (calls >= 1) {
           alert("ERROR PLEASE REFRESH PAGE");
           calls = 0;
           setIsLoading(false);
+          dispatch(logOut());
         }
       }
     };
