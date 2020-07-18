@@ -2,6 +2,7 @@ const express = require("express");
 const posts = express.Router();
 const postHashtagsRouter = require("./postHashtags/postHashtags");
 const postLikesRouter = require("../posts/postLikes/postLikes");
+const { checkFirebaseToken } = require("../../middleWare/auth.js");
 
 const {
   getAllPostsByUserId,
@@ -12,8 +13,8 @@ const {
 posts.use("/hashtags", postHashtagsRouter);
 posts.use("/likes", postLikesRouter);
 
-posts.get("/user", getAllPostsByUserId);
-posts.post("/", createPost);
+posts.get("/user", checkFirebaseToken, getAllPostsByUserId);
+posts.post("/", checkFirebaseToken, createPost);
 posts.delete("/", deletePostByUserId);
 
 module.exports = posts;

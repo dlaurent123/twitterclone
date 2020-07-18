@@ -6,7 +6,7 @@ import Button from "../../../login/button/Button";
 
 const TweetContent = ({ count, onChange }) => {
   const dispatch = useDispatch();
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, token } = useContext(AuthContext);
   const { id } = currentUser;
 
   return (
@@ -27,7 +27,7 @@ const TweetContent = ({ count, onChange }) => {
         </div>
         <div className="tweetModalButtonContainer">
           <Button
-            func={() => dispatch(tweetFunction(id))}
+            func={() => dispatch(tweetFunction(id, token))}
             form={"tweetForm"}
             isDisabled={count === 0 ? true : false}
             bDivId={"tweetModalButton"}
