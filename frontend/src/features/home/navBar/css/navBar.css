@@ -1,0 +1,127 @@
+.navHeader {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 3;
+  width: 360px;
+}
+
+.navMain {
+  width: 275px;
+  display: flex;
+  align-items: stretch;
+}
+
+.navContentsContainer {
+  height: 100%;
+  backface-visibility: hidden;
+  top: 0px;
+  position: fixed;
+}
+.navContents {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  display: flex;
+  /* justify-content: space-between; */
+  height: 100%;
+  width: 275px;
+  padding-left: 20px;
+  /* padding-right: 20px; */
+  border-right-style: solid;
+  border-right-width: thin;
+  border-right-color: #38444d;
+}
+
+.navLinksContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.homeBirdDiv img:hover {
+  border-radius: 99999px;
+  background-color: #162d3f;
+}
+
+.restLinks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.linkContainer {
+  display: flex;
+  width: min-content;
+  padding: 10px;
+  border-radius: 9999px;
+  border: transparent;
+}
+
+.linkContainer:hover {
+  /* border-radius: 99999px; */
+  background-color: #162d3f;
+}
+
+.homeImg img {
+  height: 26px;
+  background: unset;
+}
+
+.homeBirdDiv img {
+  height: 46px;
+}
+
+.spanHolder {
+  display: flex;
+  margin-right: 15px;
+  margin-left: 20px;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.spanHolder span {
+  margin: unset;
+  font-size: 19px;
+  font-weight: bold;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
+  overflow-wrap: break-word;
+  min-width: 0px;
+  line-height: 1.3125;
+}
+
+.spanHolder span:visited {
+  text-decoration: none;
+}
+
+.navy {
+  text-decoration: unset;
+}
+.navy span {
+  color: #1b95e0;
+}
+
+a {
+  text-decoration: unset;
+}
+
+#profileImg img:hover {
+  src: url("../../../../images/profileblue.png");
+}
+
+#tweet,
+#tweet button {
+  margin: unset;
+  padding: unset;
+}
+#tweet {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-right: 44px;
+}

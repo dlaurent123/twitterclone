@@ -1,0 +1,53 @@
+.navLogOut {
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 20px;
+}
+
+.navLogOutCont {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.aviImg {
+  display: flex;
+}
+
+.navLogOutTop {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.uInfo {
+  flex-grow: 1;
+  padding: 5px;
+  margin-right: 30px;
+  margin-left: 10px;
+}
+
+.navLogOutCont:hover {
+  border-radius: 99999px;
+  background-color: #162d3f;
+  cursor: pointer;
+}
+
+#navLogOutCont:hover {
+  background-color: unset;
+  cursor: unset;
+  border-radius: unset;
+}
+
+#navLogOutCont {
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: #38444d;
+}
+
+.logOutSection:hover {
+  background-color: #162d3f;
+  cursor: pointer;
+}

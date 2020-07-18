@@ -38,9 +38,12 @@
   }
 } */
 
-.loading img {
+.loading {
+}
+#loadBird {
   height: 150px;
   align-self: center;
+  background-color: (20, 31, 42);
 }
 
 .loading {
