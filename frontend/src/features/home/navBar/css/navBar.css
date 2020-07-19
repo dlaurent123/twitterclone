@@ -103,16 +103,25 @@
 .navy {
   text-decoration: unset;
 }
+
+.navyP img {
+  content: url("../../../../images/profileblue.png");
+}
+
+.navyP span {
+  color: #1b95e0;
+}
+
 .navy span {
   color: #1b95e0;
 }
 
-a {
-  text-decoration: unset;
+.navy img {
+  content: url("../../../../images/bluehome.png");
 }
 
-#profileImg img:hover {
-  src: url("../../../../images/profileblue.png");
+a {
+  text-decoration: unset;
 }
 
 #tweet,
