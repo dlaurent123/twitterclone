@@ -1,10 +1,10 @@
 import React from "react";
-import home from "../../../../../images/bluehome.png";
+import home from "../../../../../images/pets-icons.png";
 import { NavLink } from "react-router-dom";
 
 const HomeLink = () => {
   return (
-    <NavLink className="navv" activeClassName="navy" to="/home">
+    <NavLink activeClassName="navy" to="/home">
       <div className="linkItem">
         <div className="linkContainer">
           <div className="homeImg">

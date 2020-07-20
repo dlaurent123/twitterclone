@@ -5,6 +5,7 @@ import form from "../features/form/FormSlice";
 // import logger from "redux-logger";
 import err from "../features/err/errSlice";
 import userInfo from "../features/loggedInUserInfo/loggedInUserInfoSlice";
+import isLoading from "../features/loading/loadingSlice";
 
 const reducer = {
   modalIsOpen,
@@ -12,6 +13,7 @@ const reducer = {
   form,
   err,
   userInfo,
+  isLoading,
 };
 
 export default configureStore({
