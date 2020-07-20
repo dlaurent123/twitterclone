@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState({ id: 0 });
   const [token, setToken] = useState(null);
 
   const updateUser = (user) => {

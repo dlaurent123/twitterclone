@@ -1,62 +1,27 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { apiUrl } from "../../util/apiUrl";
-import { AuthContext } from "../../providers/AuthContext";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  userState,
-  updateUser,
-} from "../loggedInUserInfo/loggedInUserInfoSlice";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import gif from "../../images/blue.png";
-import { logOut } from "../../util/firebaseFunctions";
-
-let calls = 0;
+import { userState } from "../loggedInUserInfo/loggedInUserInfoSlice";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const API = apiUrl();
-  const { currentUser, token } = useContext(AuthContext);
   const state = useSelector(userState);
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    const getUserInfo = async () => {
-      try {
-        let res = await axios({
-          method: "get",
-          url: `${API}/api/users/${currentUser.id}`,
-          headers: {
-            authToken: token,
-          },
-        });
-        dispatch(updateUser(res.data.user));
-        setIsLoading(false);
-      } catch (error) {
-        if (calls === 0) {
-          calls += 1;
-          getUserInfo();
-        } else if (calls >= 1) {
-          alert("ERROR PLEASE REFRESH PAGE");
-          calls = 0;
-          setIsLoading(false);
-          dispatch(logOut());
-        }
-      }
-    };
-    const timer = setTimeout(() => {
-      getUserInfo();
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [API, currentUser.id, token, dispatch]);
+    if (state.user) {
+      setIsLoading(false);
+    }
+  }, [state.user]);
 
-  if (isLoading)
+  if (isLoading) {
     return (
       <div className="loading">
         <img id="loadBird" alt="" src={gif} />
       </div>
     );
+  }
 
-  return <div></div>;
+  return <div>HOME</div>;
 };
 
 export default Home;

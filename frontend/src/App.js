@@ -1,44 +1,87 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import "./App.css";
+import { useDispatch } from "react-redux";
 import { Switch } from "react-router-dom";
 import Home from "./features/home/Home";
 import LogIn from "./features/login/LogIn";
 import Explore from "./features/explore/Explore";
 import Profile from "./features/profile/Profile";
-import AuthProvider from "./providers/AuthContext";
+import { AuthContext } from "./providers/AuthContext";
 import NavBar from "./features/home/navBar/NavBar";
 import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
+import { apiUrl } from "./util/apiUrl";
+import {
+  updateUser,
+  clearUser,
+} from "./features/loggedInUserInfo/loggedInUserInfoSlice";
+import axios from "axios";
+import { logOut } from "./util/firebaseFunctions";
 
-function App() {
+let calls = 0;
+const App = () => {
+  const API = apiUrl();
+  const { currentUser, token } = useContext(AuthContext);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getUserInfo = async () => {
+      try {
+        let res = await axios({
+          method: "get",
+          url: `${API}/api/users/${currentUser.id}`,
+          headers: {
+            authToken: token,
+          },
+        });
+        dispatch(updateUser(res.data.user));
+      } catch (error) {
+        if (calls === 0) {
+          calls += 1;
+          getUserInfo();
+        } else if (calls >= 1) {
+          alert("ERROR PLEASE LOGIN AGAIN");
+          calls = 0;
+          dispatch(clearUser());
+          logOut();
+        }
+      }
+    };
+    const timer = setTimeout(() => {
+      if (currentUser !== null) {
+        getUserInfo();
+      }
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [API, token, dispatch, currentUser]);
+
   return (
-    <AuthProvider>
-      <div className="App">
-        <NavBar />
+    <div className="App">
+      <NavBar />
 
-        <Switch>
-          <AuthRoute exact path="/explore">
-            <Explore />
-          </AuthRoute>
+      <Switch>
+        <AuthRoute exact path="/explore">
+          <Explore />
+        </AuthRoute>
 
-          <AuthRoute path="/login">
-            <LogIn />
-          </AuthRoute>
+        <AuthRoute path="/login">
+          <LogIn />
+        </AuthRoute>
 
-          <ProtectedRoute path="/home">
-            <Home />
-          </ProtectedRoute>
+        <ProtectedRoute path="/home">
+          <Home />
+        </ProtectedRoute>
 
-          <ProtectedRoute path="/profile">
-            <Profile />
-          </ProtectedRoute>
+        <ProtectedRoute path="/profile">
+          <Profile />
+        </ProtectedRoute>
 
-          <AuthRoute path="/">
-            <Explore />
-          </AuthRoute>
-        </Switch>
-      </div>
-    </AuthProvider>
+        <AuthRoute path="/">
+          <Explore />
+        </AuthRoute>
+      </Switch>
+    </div>
   );
-}
+};
 
 export default App;
