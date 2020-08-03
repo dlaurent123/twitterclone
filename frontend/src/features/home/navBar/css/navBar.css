@@ -31,9 +31,9 @@
   width: 255px;
   padding-left: 10px;
   padding-right: 10px;
-  border-right-style: solid;
+  /* border-right-style: solid;
   border-right-width: thin;
-  border-right-color: #38444d;
+  border-right-color: #38444d; */
 }
 
 .navLinksContainer {

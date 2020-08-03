@@ -59,3 +59,8 @@
   display: flex;
   width: 100vw;
 }
+.mainDivv {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+}

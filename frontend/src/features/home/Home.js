@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import gif from "../../images/blue.png";
 import { userState } from "../loggedInUserInfo/loggedInUserInfoSlice";
+import "./css/home.css";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +22,22 @@ const Home = () => {
     );
   }
 
-  return <div>HOME</div>;
+  return (
+    <div className="homeDiv top">
+      <div className="feedDiv">
+        <div className="feedCont">
+          <div className="feedBanner">
+            <div className="titleCont">
+              <h2>
+                <span className="bannerSpan">Home</span>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="searchSide">Search</div>
+    </div>
+  );
 };
 
 export default Home;

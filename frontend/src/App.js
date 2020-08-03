@@ -73,14 +73,18 @@ const App = () => {
         <ProtectedRoute exact path="/home">
           <div className="signedInDiv">
             <NavBar />
-            <Home />
+            <main className="mainDivv">
+              <Home />
+            </main>
           </div>
         </ProtectedRoute>
 
         <ProtectedRoute exact path="/profile">
           <div className="signedInDiv">
             <NavBar />
-            <Profile />
+            <main className="mainDivv">
+              <Profile />
+            </main>
           </div>
         </ProtectedRoute>
 
