@@ -1,0 +1,67 @@
+.postsLayer2 {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(56, 68, 77);
+}
+.mainPostsDiv {
+  padding-right: 15px;
+  padding-left: 15px;
+  flex-shrink: 1;
+}
+
+.articleConts {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+}
+
+.postBodySpace {
+  padding-top: 10px;
+}
+
+.postBodyCont {
+  display: flex;
+  flex-direction: row;
+}
+
+.postAvy {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 49px;
+  margin-right: 10px;
+  align-items: center;
+}
+
+.postText {
+  padding-bottom: 10px;
+}
+
+.postTitle {
+  display: flex;
+  flex-direction: column;
+}
+.postTitleCont {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.postTitleTain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postTitleItems {
+  align-items: baseline;
+  flex-shrink: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.itemsHolder span {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  color: rgb(136, 153, 166);
+}

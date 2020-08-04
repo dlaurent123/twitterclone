@@ -13,18 +13,7 @@ const Home = () => {
   const state = useSelector(userState);
   const API = apiUrl();
   const { token } = useContext(AuthContext);
-  const [posts, setPosts] = useState([
-    {
-      avatar: null,
-      name: "deploy jones",
-      post_body: "second test tweet",
-      post_id: 17,
-      post_image: null,
-      post_time: "2020-07-18T15:09:35.027Z",
-      user_id: "y15mmoTQeEWk5bc3M7mq0ZFTAqI3",
-      user_name: "jones",
-    },
-  ]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const getAllPosts = async () => {
@@ -37,12 +26,12 @@ const Home = () => {
           },
         });
         // debugger;
-        // setPosts(res.data.posts);
+        setPosts(res.data.posts);
       } catch (error) {
         console.log(error);
       }
     };
-    // getAllPosts();
+    getAllPosts();
     if (state.user) {
       setIsLoading(false);
     }
