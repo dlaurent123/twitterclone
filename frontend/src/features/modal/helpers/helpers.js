@@ -57,7 +57,7 @@ export const signOutStyles = {
   content: {
     position: "absolute",
     top: " 65%",
-    left: "6%",
+    left: "16%",
     right: "auto",
     bottom: "auto",
     border: "unset",
