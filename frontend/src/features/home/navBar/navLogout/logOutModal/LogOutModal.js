@@ -71,7 +71,6 @@ const LogOutModal = ({ isOpen, setIsOpen }) => {
             borderBottomWidth: "thin",
           }}
         >
-          <button onClick={lo}>lo</button>
           <span style={{ fontSize: "15px", fontWeight: "500" }}>
             Log out @{state.user.user_name}
           </span>
