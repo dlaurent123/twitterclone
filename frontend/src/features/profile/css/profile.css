@@ -13,7 +13,7 @@
 }
 
 .bannerImg {
-  height: 199px;
+  height: 165px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -47,5 +47,14 @@
   width: 134px;
   overflow: hidden;
   min-width: 49px;
-  /* background-image: url("../../../images/user.png"); */
+}
+
+.nameDiv {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.nameDivCont {
+  flex-shrink: 1;
+  max-width: 100%;
 }

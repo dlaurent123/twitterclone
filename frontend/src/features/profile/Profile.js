@@ -65,7 +65,7 @@ const Profile = () => {
 
           <div className="postsDivScroll">
             <div className="profileInfo flexC">
-              <ProfileInfo />
+              <ProfileInfo user={state.user} />
             </div>
             {/* <Posts /> */}
           </div>
