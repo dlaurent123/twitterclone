@@ -3,11 +3,13 @@ import { useDispatch } from "react-redux";
 import { AuthContext } from "../../../../providers/AuthContext";
 import { tweetFunction } from "../../../../util/tweetFunction";
 import Button from "../../../login/button/Button";
+import { useHistory } from "react-router-dom";
 
 const TweetContent = ({ count, onChange }) => {
   const dispatch = useDispatch();
   const { currentUser, token } = useContext(AuthContext);
   const { id } = currentUser;
+  const history = useHistory();
 
   return (
     <div className="tweetContent">
@@ -27,7 +29,7 @@ const TweetContent = ({ count, onChange }) => {
         </div>
         <div className="tweetModalButtonContainer">
           <Button
-            func={() => dispatch(tweetFunction(id, token))}
+            func={() => dispatch(tweetFunction(id, token, history))}
             form={"tweetForm"}
             isDisabled={count === 0 ? true : false}
             bDivId={"tweetModalButton"}

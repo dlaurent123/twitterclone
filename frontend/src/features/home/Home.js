@@ -56,7 +56,9 @@ const Home = () => {
               </h2>
             </div>
           </div>
-          <Posts posts={posts} />
+          <div className="postsDivScroll">
+            <Posts posts={posts} />
+          </div>
         </div>
       </div>
       <div className="searchSide">Search</div>
