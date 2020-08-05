@@ -24,7 +24,6 @@ CREATE TABLE users
     banner_img VARCHAR DEFAULT NULL,
     avatar VARCHAR DEFAULT NULL,
     date_joined DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
-
 );
 
 CREATE TABLE posts
@@ -58,22 +57,22 @@ CREATE TABLE posts
 -- );
 
 INSERT INTO users
-VALUES(1, 'bigDan', 'dan@gmail.com');
+VALUES('piaN8VQJ5ufz3jvKmD99HvoiOAE2', 'sarah_xo', 'check@gmail.com', 'Sarah B');
 
 INSERT INTO users
-VALUES(2, 'mikey', 'mike@gmail.com');
-
-INSERT INTO users
-VALUES
-    (3, 'timmyTurner', 'tim@gmail.com');
+VALUES('MfRhJ0Cg9PQ7AwnntDMNSwMj6Si1', 'mikey', 'user3@gmail.com', 'Mike Jones');
 
 INSERT INTO users
 VALUES
-    (4, 'damnGina' , 'gina@gmail.com');
+    ('wc373faRjFb46DmOmKTonOgsP0S2', 'timmy_turner', 'user1@gmail.com', 'Timmy');
 
 INSERT INTO users
 VALUES
-    (5, 'jesTheMess', 'jes@gmail.com');
+    ('y15mmoTQeEWk5bc3M7mq0ZFTAqI3', 'demo_user' , 'dejones@gmail.com', 'Demo');
+
+INSERT INTO users
+VALUES
+    ('uCGJkq1N3NdfSvH1RiR2wfvjUCy1', 'corsky', 'corey@pursuit.org', 'Corey', 'March 4 1990');
 
 
 -- INSERT INTO follows
@@ -84,8 +83,8 @@ VALUES
 --     (5, 5, 1);
 
 INSERT INTO posts
-VALUES(1, 'HELLO WORLD', 1),
-    (2, 'HELLO!!!!', 2);
+VALUES(1, 'HELLO WORLD', 'y15mmoTQeEWk5bc3M7mq0ZFTAqI3'),
+    (2, 'this is the best clone ever!!!', 'piaN8VQJ5ufz3jvKmD99HvoiOAE2');
 
 -- INSERT INTO likes
 -- VALUES(1, 1, 1),
