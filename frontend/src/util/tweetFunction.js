@@ -3,7 +3,10 @@ import { apiUrl } from "./apiUrl";
 import { clearForm } from "../features/form/FormSlice";
 import { updateModal } from "../features/modal/modalSlice";
 
-export const tweetFunction = (id, token) => async (dispatch, getState) => {
+export const tweetFunction = (id, token, history) => async (
+  dispatch,
+  getState
+) => {
   const { form } = getState();
   const { tweet } = form;
   const API = apiUrl();
@@ -22,6 +25,7 @@ export const tweetFunction = (id, token) => async (dispatch, getState) => {
     });
     dispatch(clearForm);
     dispatch(updateModal());
+    history.push("/");
   } catch (error) {
     console.log(error);
   }

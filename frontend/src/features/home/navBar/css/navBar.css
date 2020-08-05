@@ -1,10 +1,11 @@
 .navHeader {
   display: flex;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   flex-direction: column;
   align-items: flex-end;
   z-index: 3;
-  width: 360px;
+  width: 362px;
+  height: 100vh;
 }
 
 .navMain {
@@ -14,6 +15,7 @@
 }
 
 .navContentsContainer {
+  width: 275px;
   height: 100%;
   backface-visibility: hidden;
   top: 0px;
@@ -26,12 +28,12 @@
   display: flex;
   /* justify-content: space-between; */
   height: 100%;
-  width: 275px;
-  padding-left: 20px;
-  /* padding-right: 20px; */
-  border-right-style: solid;
+  width: 255px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* border-right-style: solid;
   border-right-width: thin;
-  border-right-color: #38444d;
+  border-right-color: #38444d; */
 }
 
 .navLinksContainer {
@@ -132,5 +134,6 @@ a {
 #tweet {
   margin-top: 5px;
   margin-bottom: 5px;
-  padding-right: 44px;
+  /* padding-right: 44px; */
+  width: 90%;
 }

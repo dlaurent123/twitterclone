@@ -9,6 +9,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import avi from "../../../../../images/user.png";
 import check from "../../../../../images/tick.png";
+import "../css/navLogOut.css";
+
 const LogOutModal = ({ isOpen, setIsOpen }) => {
   const state = useSelector(userState);
   const dispatch = useDispatch();

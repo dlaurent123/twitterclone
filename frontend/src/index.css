@@ -15,6 +15,7 @@
 body {
   background-color: rgb(21, 32, 43);
   margin: unset;
+  overflow: hidden;
 }
 
 #root {

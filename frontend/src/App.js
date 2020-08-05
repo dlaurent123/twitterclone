@@ -57,26 +57,38 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar />
-
       <Switch>
+        <AuthRoute exact path="/">
+          <Explore />
+        </AuthRoute>
+
         <AuthRoute exact path="/explore">
           <Explore />
         </AuthRoute>
 
-        <AuthRoute path="/login">
+        <AuthRoute exact path="/login">
           <LogIn />
         </AuthRoute>
 
-        <ProtectedRoute path="/home">
-          <Home />
+        <ProtectedRoute exact path="/home">
+          <div className="signedInDiv">
+            <NavBar />
+            <main className="mainDivv">
+              <Home />
+            </main>
+          </div>
         </ProtectedRoute>
 
-        <ProtectedRoute path="/profile">
-          <Profile />
+        <ProtectedRoute exact path="/profile">
+          <div className="signedInDiv">
+            <NavBar />
+            <main className="mainDivv">
+              <Profile />
+            </main>
+          </div>
         </ProtectedRoute>
 
-        <AuthRoute path="/">
+        <AuthRoute path="*">
           <Explore />
         </AuthRoute>
       </Switch>
