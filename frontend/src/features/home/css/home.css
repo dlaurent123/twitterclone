@@ -38,6 +38,8 @@
 
 .titleCont h2 {
   margin: unset;
+  display: flex;
+  flex-direction: column;
 }
 
 .bannerSpan {

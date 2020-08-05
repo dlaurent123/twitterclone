@@ -13,7 +13,7 @@ const {
 posts.use("/hashtags", postHashtagsRouter);
 posts.use("/likes", postLikesRouter);
 
-posts.get("/user", checkFirebaseToken, getAllPostsByUserId);
+posts.get("/user/:id", checkFirebaseToken, getAllPostsByUserId);
 posts.post("/", checkFirebaseToken, createPost);
 posts.delete("/", deletePostByUserId);
 

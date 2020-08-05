@@ -7,6 +7,7 @@ import {
   userState,
 } from "../../../../loggedInUserInfo/loggedInUserInfoSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import avi from "../../../../../images/user.png";
 import check from "../../../../../images/tick.png";
 import "../css/navLogOut.css";
@@ -14,9 +15,11 @@ import "../css/navLogOut.css";
 const LogOutModal = ({ isOpen, setIsOpen }) => {
   const state = useSelector(userState);
   const dispatch = useDispatch();
+  const history = useHistory();
   const lo = () => {
-    logOut();
     dispatch(clearUser());
+    logOut();
+    history.push("/");
   };
   return (
     <Modal
