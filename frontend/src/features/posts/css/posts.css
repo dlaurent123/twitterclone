@@ -65,3 +65,8 @@
   font-size: 15px;
   color: rgb(136, 153, 166);
 }
+
+.posts:hover {
+  background-color: #162d3f;
+  cursor: pointer;
+}

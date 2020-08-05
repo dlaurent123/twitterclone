@@ -5,7 +5,7 @@ import img from "../../images/user.png";
 const Posts = ({ posts = [], userName, name }) => {
   return posts.map((post) => {
     return (
-      <div key={post.post_id}>
+      <div className="posts" key={post.post_id}>
         <div className="postsLayer2">
           <div className="postsContainer">
             <div className="article">
