@@ -1,0 +1,51 @@
+.backImg:hover {
+  border-radius: 99999px;
+  background-color: #162d3f;
+}
+
+.flexC {
+  display: flex;
+  flex-direction: column;
+}
+
+.pInfo {
+  flex-grow: 1;
+}
+
+.bannerImg {
+  height: 199px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../../images/IMG_0459.JPG");
+}
+
+.restInfo {
+  margin-bottom: 15px;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.img_buttonDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.proImgDiv {
+  margin-left: -4px;
+  margin-bottom: -4px;
+  width: 25%;
+  margin-top: -18%;
+  border-radius: 9999px;
+  border-style: solid;
+  border-color: #15202b;
+  border-width: thick;
+  width: 134px;
+  overflow: hidden;
+  min-width: 49px;
+  /* background-image: url("../../../images/user.png"); */
+}
