@@ -25,7 +25,7 @@ const TweetContent = ({ count, onChange }) => {
       <div className="tweetFooter">
         <div className="tweetAddOns"></div>
         <div className="tweetCount">
-          <span>{count}/280</span>
+          <span>{count}/250</span>
         </div>
         <div className="tweetModalButtonContainer">
           <Button
