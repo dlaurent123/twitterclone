@@ -7,6 +7,7 @@ import gif from "../../images/blue.png";
 import back from "../../images/left-arrow.png";
 import "./css/profile.css";
 import ProfileInfo from "./profileInfo/ProfileInfo";
+import Posts from "../posts/Posts";
 
 const Profile = () => {
   const { currentUser } = useContext(AuthContext);
@@ -67,7 +68,7 @@ const Profile = () => {
             <div className="profileInfo flexC">
               <ProfileInfo user={state.user} />
             </div>
-            {/* <Posts /> */}
+            <Posts />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import pro from "../../../images/user.png";
 // import Button from "../../login/button/Button";
+import pin from "../../../images/pin.png";
 
 const ProfileInfo = ({ user }) => {
   return (
@@ -42,6 +43,44 @@ const ProfileInfo = ({ user }) => {
                 >
                   @{user.user_name}
                 </span>
+              </div>
+            </div>
+            <div className="bioItems">
+              <div>
+                <span
+                  style={{
+                    fontSize: "15px",
+                    color: "white",
+                    lineHeight: "1.3125",
+                  }}
+                >
+                  This is my bio || Do you like it?
+                </span>
+              </div>
+            </div>
+
+            <div className="bioItems">
+              <div style={{ display: "flex" }}>
+                <div
+                  style={{
+                    marginRight: "5px",
+                    display: "flex",
+                  }}
+                >
+                  <img height="15px" alt="" src={pin} />
+                </div>
+                <div>
+                  <span
+                    style={{
+                      fontSize: "15px",
+                      color: "#8899A6",
+                      lineHeight: "1.3125",
+                      margin: "unset",
+                    }}
+                  >
+                    The Matrix [[[[[“Nyc”]]]]]
+                  </span>
+                </div>
               </div>
             </div>
           </div>

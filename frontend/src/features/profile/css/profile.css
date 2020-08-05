@@ -25,6 +25,9 @@
   padding-top: 10px;
   padding-left: 15px;
   padding-right: 15px;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: #38444d;
 }
 
 .img_buttonDiv {
@@ -57,4 +60,13 @@
 .nameDivCont {
   flex-shrink: 1;
   max-width: 100%;
+}
+
+.bioItems {
+  margin-bottom: 10px;
+}
+
+.nameDivItems {
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
