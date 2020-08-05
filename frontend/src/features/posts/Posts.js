@@ -2,7 +2,7 @@ import React from "react";
 import "./css/posts.css";
 import img from "../../images/user.png";
 
-const Posts = ({ posts }) => {
+const Posts = ({ posts = [], userName, name }) => {
   return posts.map((post) => {
     return (
       <div key={post.post_id}>
@@ -32,7 +32,7 @@ const Posts = ({ posts }) => {
                                       fontWeight: "bolder",
                                     }}
                                   >
-                                    {post.name}
+                                    {name !== undefined ? name : post.name}
                                   </span>
                                   <span
                                     style={{
@@ -40,7 +40,10 @@ const Posts = ({ posts }) => {
                                       marginLeft: "5px",
                                     }}
                                   >
-                                    @{post.user_name}
+                                    @
+                                    {userName !== undefined
+                                      ? userName
+                                      : post.user_name}
                                   </span>
                                 </div>
                               </div>

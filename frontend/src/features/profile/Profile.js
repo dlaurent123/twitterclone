@@ -8,18 +8,38 @@ import back from "../../images/left-arrow.png";
 import "./css/profile.css";
 import ProfileInfo from "./profileInfo/ProfileInfo";
 import Posts from "../posts/Posts";
+import axios from "axios";
+import { apiUrl } from "../../util/apiUrl";
 
 const Profile = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, token } = useContext(AuthContext);
   const state = useSelector(userState);
   const [loading, setLoading] = useState(true);
   const history = useHistory();
+  const [posts, setPosts] = useState([]);
+  const API = apiUrl();
 
   useEffect(() => {
+    const getUsersPosts = async () => {
+      try {
+        let res = await axios({
+          method: "GET",
+          url: `${API}/api/posts/user/${currentUser.id}`,
+          headers: {
+            AuthToken: token,
+          },
+        });
+
+        setPosts(res.data.posts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUsersPosts();
     if (state.user !== null) {
       setLoading(false);
     }
-  }, [state.user]);
+  }, [state.user, currentUser.id, API, token]);
 
   if (loading) {
     return (
@@ -68,7 +88,11 @@ const Profile = () => {
             <div className="profileInfo flexC">
               <ProfileInfo user={state.user} />
             </div>
-            <Posts />
+            <Posts
+              posts={posts}
+              name={state.user.name}
+              userName={state.user.user_name}
+            />
           </div>
         </div>
       </div>
