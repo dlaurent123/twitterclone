@@ -3,11 +3,12 @@ const db = require("../../database/index");
 const createPost = async (req, res) => {
   const { postBody, posterId, postImg } = req.body;
   try {
-    await db.none(
-      "INSERT INTO posts(post_body,poster_id,post_image) VALUES($1,$2,$3) ",
+    let post = await db.oneOrNone(
+      "INSERT INTO posts(post_body,poster_id,post_image) VALUES($1,$2,$3) RETURNING post_id  ",
       [postBody, posterId, postImg]
     );
-    res.status(200).json({ status: 200, message: "post created" });
+
+    res.status(200).json({ status: 200, message: "post created", post });
   } catch (error) {
     res.status(400).json({ status: 400, message: error });
     console.log(error);

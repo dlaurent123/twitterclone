@@ -8,11 +8,12 @@ export const tweetFunction = (id, token, history) => async (
   getState
 ) => {
   const { form } = getState();
-  const { tweet } = form;
+  const { tweet, hash } = form;
   const API = apiUrl();
+  let postId = null;
 
   try {
-    await axios({
+    let res = await axios({
       method: "POST",
       url: `${API}/api/posts`,
       data: {
@@ -23,6 +24,25 @@ export const tweetFunction = (id, token, history) => async (
         authToken: token,
       },
     });
+
+    if (hash) {
+      try {
+        await axios({
+          method: "POST",
+          url: `${API}/api/hashtags`,
+          data: {
+            postId: res.data.post.post_id,
+            hashtag: hash,
+          },
+          headers: {
+            authToken: token,
+          },
+        });
+      } catch (error) {
+        console.log(error + " " + "hashtag error");
+      }
+    }
+
     dispatch(clearForm);
     dispatch(updateModal());
     history.push("/");
