@@ -10,7 +10,6 @@ export const tweetFunction = (id, token, history) => async (
   const { form } = getState();
   const { tweet, hash } = form;
   const API = apiUrl();
-  let postId = null;
 
   try {
     let res = await axios({
@@ -39,7 +38,7 @@ export const tweetFunction = (id, token, history) => async (
           },
         });
       } catch (error) {
-        console.log(error + " " + "hashtag error");
+        console.log(error);
       }
     }
 

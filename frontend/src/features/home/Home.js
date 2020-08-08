@@ -25,7 +25,7 @@ const Home = () => {
             AuthToken: token,
           },
         });
-        // debugger;
+        debugger;
         setPosts(res.data.posts);
       } catch (error) {
         console.log(error);
