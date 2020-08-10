@@ -16,6 +16,7 @@ import {
 } from "./features/loggedInUserInfo/loggedInUserInfoSlice";
 import axios from "axios";
 import { logOut } from "./util/firebaseFunctions";
+import Search from "./features/search/Search";
 
 let calls = 0;
 const App = () => {
@@ -86,6 +87,10 @@ const App = () => {
               <Profile />
             </main>
           </div>
+        </ProtectedRoute>
+
+        <ProtectedRoute exact path="/search/:hashtag">
+          <Search />
         </ProtectedRoute>
 
         <AuthRoute path="*">

@@ -63,10 +63,7 @@ const Posts = ({ posts = [], userName, name }) => {
                               {post.post_body}
                             </span>
 
-                            <Hashtags
-                              hashtag={post.hashtag}
-                              hashtag_id={post.hashtag_id}
-                            />
+                            <Hashtags hashtags={post.tags} />
                           </div>
                         </div>
                       </div>

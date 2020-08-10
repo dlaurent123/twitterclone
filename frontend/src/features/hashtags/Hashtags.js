@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Hashtags = ({ hashtag, hashtag_id }) => {
-  if (hashtag !== null) {
-    let hashtagsArr = hashtag.split(" ");
-    return hashtagsArr.map((element) => {
+
+const Hashtags = ({ hashtags }) => {
+  if (hashtags !== null) {
+    return hashtags.map((element) => {
       return (
-        <Link key={element} to={`/search/${element}`} id={hashtag_id}>
+        <Link key={element} to={`/search/${element.slice(1, element.length)}`}>
           <span
             className="hashSpan"
             style={{
