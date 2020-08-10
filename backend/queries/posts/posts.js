@@ -34,7 +34,7 @@ const getAllPostsByUserId = async (req, res) => {
   const { id } = req.params;
   try {
     let posts = await db.any(
-      "SELECT * FROM posts LEFT JOIN users ON posts.poster_id = users.user_id LEFT JOIN hashtags ON post_id = post_hashtaged WHERE poster_id = $1 ORDER BY post_time DESC",
+      "SELECT users.user_id, users.user_name, users.name, users.avatar, posts_done.post_id, posts_done.post_body, posts_done.post_image, posts_done.post_time, tags FROM (SELECT posts.*, array_remove(ARRAY_AGG(hashtags.hashtag), NULL) AS tags FROM posts LEFT JOIN hashtags ON posts.post_id = hashtags.post_hashtaged GROUP BY posts.post_id ORDER BY post_time DESC) AS posts_done JOIN users ON users.user_id = posts_done.poster_id WHERE users.user_id =$1",
       [id]
     );
     res.status(200).json({
