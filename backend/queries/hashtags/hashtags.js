@@ -13,4 +13,21 @@ const addTag = async (req, res) => {
   }
 };
 
-module.exports = { addTag };
+const search = async (req, res) => {
+  const { hashtag } = req.params;
+
+  try {
+    let posts = await db.any(
+      "SELECT * FROM posts LEFT JOIN users ON posts.poster_id = users.user_id LEFT JOIN hashtags ON post_id = post_hashtaged WHERE hashtags.hashtag LIKE $1 ",
+      [hashtag]
+    );
+    res
+      .status(200)
+      .json({ status: 200, message: "all posts with hashtag recieved", posts });
+  } catch (error) {
+    res.status(404).json({ status: 404, message: "error" });
+    console.log(error);
+  }
+};
+
+module.exports = { addTag, search };
