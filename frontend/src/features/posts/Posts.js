@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/posts.css";
 import img from "../../images/user.png";
-import { Link } from "react-router-dom";
+import Hashtags from "../hashtags/Hashtags";
 
 const Posts = ({ posts = [], userName, name }) => {
   return posts.map((post) => {
@@ -62,19 +62,11 @@ const Posts = ({ posts = [], userName, name }) => {
                             >
                               {post.post_body}
                             </span>
-                            <Link id={post.hashtag_id}>
-                              <span
-                                className="hashSpan"
-                                style={{
-                                  fontWeight: "400",
-                                  fontSize: "15px",
-                                  color: "#1B95E0",
-                                  marginLeft: "5px",
-                                }}
-                              >
-                                {post.hashtag}
-                              </span>
-                            </Link>
+
+                            <Hashtags
+                              hashtag={post.hashtag}
+                              hashtag_id={post.hashtag_id}
+                            />
                           </div>
                         </div>
                       </div>
