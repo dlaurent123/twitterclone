@@ -90,7 +90,12 @@ const App = () => {
         </ProtectedRoute>
 
         <ProtectedRoute exact path="/search/:hashtag">
-          <Search />
+          <div className="signedInDiv">
+            <NavBar />
+            <main className="mainDivv">
+              <Search />
+            </main>
+          </div>
         </ProtectedRoute>
 
         <AuthRoute path="*">

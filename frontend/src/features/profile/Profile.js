@@ -98,7 +98,7 @@ const Profile = () => {
         </div>
       </div>
       <div className="searchSide">
-        <SearchInput />
+        <SearchInput id={"sI"} divId={"sIDiv"} labelClassName={"searchLabel"} />
       </div>
     </div>
   );

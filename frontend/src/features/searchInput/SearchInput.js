@@ -3,18 +3,23 @@ import Input from "../login/input/Input";
 import search from "../../images/search.png";
 import "./css/searchInput.css";
 
-const SearchInput = () => {
+const SearchInput = ({ id, labelClassName, divId }) => {
+  // create an onChange function that allows user to search dynamiclly
+
   return (
     <div className="search">
-      <Input
-        imgDivId={"searchImgDiv"}
-        src={search}
-        containerId={"searcInputCont"}
-        id={"sI"}
-        placeholder={"Search Twitter"}
-        divId={"sIDiv"}
-        labelClassName={"searchLabel"}
-      />
+      <form onChange={() => console.log("working")}>
+        <Input
+          imgDivId={"searchImgDiv"}
+          src={search}
+          containerId={"searcInputCont"}
+          id={id}
+          placeholder={"Search Twitter"}
+          divId={divId}
+          labelClassName={labelClassName}
+          keyName={"search"}
+        />
+      </form>
     </div>
   );
 };
