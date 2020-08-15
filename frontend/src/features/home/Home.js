@@ -7,6 +7,7 @@ import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
 import Posts from "../posts/Posts";
+import SearchInput from "../searchInput/SearchInput";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -61,7 +62,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="searchSide">Search</div>
+      <div className="searchSide">
+        <SearchInput />
+      </div>
     </div>
   );
 };

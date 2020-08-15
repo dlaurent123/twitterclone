@@ -10,6 +10,7 @@ import ProfileInfo from "./profileInfo/ProfileInfo";
 import Posts from "../posts/Posts";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
+import SearchInput from "../searchInput/SearchInput";
 
 const Profile = () => {
   const { currentUser, token } = useContext(AuthContext);
@@ -96,7 +97,9 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="searchSide">Search</div>
+      <div className="searchSide">
+        <SearchInput />
+      </div>
     </div>
   );
 };

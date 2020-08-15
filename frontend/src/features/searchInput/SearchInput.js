@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "../login/input/Input";
 import search from "../../images/search.png";
+import "./css/searchInput.css";
 
 const SearchInput = () => {
   return (
@@ -9,9 +10,10 @@ const SearchInput = () => {
         imgDivId={"searchImgDiv"}
         src={search}
         containerId={"searcInputCont"}
-        id={"searchInput"}
+        id={"sI"}
         placeholder={"Search Twitter"}
-        divId={"searchDiv"}
+        divId={"sIDiv"}
+        labelClassName={"searchLabel"}
       />
     </div>
   );

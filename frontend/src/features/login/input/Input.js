@@ -14,13 +14,14 @@ const Input = ({
   containerId,
   imgDivId,
   wrapId,
+  labelClassName,
 }) => {
   const dispatch = useDispatch();
 
   return (
     <div id={divId} className="inputDiv">
       <div className={wrapId}>
-        <label>
+        <label id={labelClassName}>
           <div className="spanDiv">
             <span className="input">{spanName}</span>
           </div>
