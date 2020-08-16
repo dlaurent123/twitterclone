@@ -1,16 +1,19 @@
 import React, { useEffect, useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
 import SearchInput from "../searchInput/SearchInput";
 import Posts from "../posts/Posts";
+import back from "../../images/left-arrow.png";
+import "./css/search.css";
 
 const Search = () => {
   const { hashtag } = useParams();
   const API = apiUrl();
   const { token } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     const search = async () => {
@@ -37,14 +40,15 @@ const Search = () => {
           <div className="feedCont">
             <div className="feedBanner">
               <div className="titleCont">
-                <div id="space" className="space">
-                  <SearchInput id={"searchInput"} divId={"searchDiv"} />
-                  {/* <img
+                <div id="space" className="space sSpace">
+                  <img
                     className="backImg"
                     alt=""
                     src={back}
-                    onClick={() => history.push("/home")}
-                  /> */}
+                    onClick={() => history.goBack()}
+                  />
+                  <SearchInput id={"searchInput"} divId={"searchDiv"} />
+                  <div className="extra"></div>
                 </div>
               </div>
             </div>

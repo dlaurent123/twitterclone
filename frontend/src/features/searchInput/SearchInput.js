@@ -7,7 +7,7 @@ const SearchInput = ({ id, labelClassName, divId }) => {
   // create an onChange function that allows user to search dynamiclly
 
   return (
-    <div className="search">
+    <div className="search search2">
       <form onChange={() => console.log("working")}>
         <Input
           imgDivId={"searchImgDiv"}

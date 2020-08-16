@@ -1,0 +1,9 @@
+.sSpace {
+  width: -webkit-fill-available;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search2 {
+  flex-grow: 0.5;
+}
