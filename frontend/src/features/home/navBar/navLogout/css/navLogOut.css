@@ -51,3 +51,8 @@
   background-color: #162d3f;
   cursor: pointer;
 }
+
+.ReactModalPortal {
+  z-index: 3;
+  position: relative;
+}

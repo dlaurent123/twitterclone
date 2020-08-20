@@ -7,3 +7,30 @@
 .search2 {
   flex-grow: 0.5;
 }
+
+#searchBut button {
+  margin: unset;
+  background-color: rgba(0, 0, 0, 0);
+  padding-left: 1em;
+  padding-right: 1em;
+  border-color: rgb(29, 161, 242);
+  color: rgb(29, 161, 242);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 9999px;
+  min-width: calc(48.3px);
+  min-height: 30px;
+  outline-style: none;
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.2s;
+  justify-content: center;
+}
+
+#searchBut button:hover {
+  background-color: #162d3f;
+}
+
+.extra {
+  display: flex;
+  height: 30px;
+}

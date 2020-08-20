@@ -7,13 +7,19 @@ import SearchInput from "../searchInput/SearchInput";
 import Posts from "../posts/Posts";
 import back from "../../images/left-arrow.png";
 import "./css/search.css";
+import Button from "../login/button/Button";
+import { useSelector } from "react-redux";
+import { formState } from "../form/FormSlice";
+import gif from "../../images/blue.png";
 
 const Search = () => {
   const { hashtag } = useParams();
   const API = apiUrl();
-  const { token } = useContext(AuthContext);
+  const { token, currentUser } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
   const history = useHistory();
+  const state = useSelector(formState);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const search = async () => {
@@ -25,13 +31,40 @@ const Search = () => {
             AuthToken: token,
           },
         });
-        // setPosts[res.data.posts];
+        setPosts(res.data.posts);
+        return setTimeout(() => {
+          setLoading(false);
+        }, 1800);
       } catch (error) {
         console.log(error);
       }
     };
     search();
-  }, [API, token, hashtag]);
+  }, [API, token, hashtag, currentUser]);
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <img id="loadBird" alt="" src={gif} />
+      </div>
+    );
+  }
+
+  const onClick = async () => {
+    try {
+      let res = await axios({
+        method: "GET",
+        url: `${API}/api/hashtags/search/${state.search}`,
+        headers: {
+          AuthToken: token,
+        },
+      });
+
+      setPosts(res.data.posts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -48,7 +81,14 @@ const Search = () => {
                     onClick={() => history.goBack()}
                   />
                   <SearchInput id={"searchInput"} divId={"searchDiv"} />
-                  <div className="extra"></div>
+                  <div className="extra">
+                    <Button
+                      func={onClick}
+                      bDivId={"searchBut"}
+                      buttonId={"exploreLogIn"}
+                      text={"Search"}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

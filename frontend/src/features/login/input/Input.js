@@ -15,6 +15,7 @@ const Input = ({
   imgDivId,
   wrapId,
   labelClassName,
+  jsx,
 }) => {
   const dispatch = useDispatch();
 
@@ -40,6 +41,7 @@ const Input = ({
               }
               className="loginInput"
             />
+            {jsx}
           </div>
         </label>
       </div>
