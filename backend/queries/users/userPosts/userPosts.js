@@ -11,7 +11,7 @@ const getAllPostsByUsers = async (req, res) => {
       message: "all posts retrieved",
     });
   } catch (error) {
-    res.status(404).json({ status: 404, message: error });
+    res.status(403).json({ status: 403, message: error });
   }
 };
 
