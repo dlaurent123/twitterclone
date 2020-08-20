@@ -8,6 +8,7 @@ import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
 import Posts from "../posts/Posts";
 import SearchInput from "../searchInput/SearchInput";
+import SearchItems from "../searchItems/SearchItems";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,7 +64,7 @@ const Home = () => {
         </div>
       </div>
       <div className="searchSide">
-        <SearchInput id={"sI"} divId={"sIDiv"} labelClassName={"searchLabel"} />
+        <SearchItems />
       </div>
     </div>
   );
