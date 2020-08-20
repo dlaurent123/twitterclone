@@ -1,8 +1,8 @@
 import React from "react";
 
-const Button = ({ form, func, isDisabled, text, buttonId, bDivId }) => {
+const Button = ({ form, func, isDisabled, text, buttonId, bDivId, style }) => {
   return (
-    <div id={bDivId} className="buttonDiv">
+    <div style={style} id={bDivId} className="buttonDiv">
       {isDisabled ? (
         <button
           form={form}

@@ -1,0 +1,29 @@
+#sI {
+  padding: 10px;
+  color: white;
+  font-size: inherit;
+}
+#sI::placeholder {
+  color: #8899a6;
+  font-size: inherit;
+}
+
+#sIDiv {
+  padding: unset;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#sIDiv label {
+  border-radius: 9999px;
+  border-color: transparent;
+  background-color: #253341;
+}
+
+#sIDiv label:focus-within {
+  border-radius: 9999px;
+  border-style: solid;
+  border-width: 1.2px;
+  border-color: #1da1f2;
+  background-color: #15202b;
+}

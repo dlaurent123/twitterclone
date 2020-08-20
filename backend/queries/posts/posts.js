@@ -3,11 +3,12 @@ const db = require("../../database/index");
 const createPost = async (req, res) => {
   const { postBody, posterId, postImg } = req.body;
   try {
-    await db.none(
-      "INSERT INTO posts(post_body,poster_id,post_image) VALUES($1,$2,$3) ",
+    let post = await db.oneOrNone(
+      "INSERT INTO posts(post_body,poster_id,post_image) VALUES($1,$2,$3) RETURNING post_id  ",
       [postBody, posterId, postImg]
     );
-    res.status(200).json({ status: 200, message: "post created" });
+
+    res.status(200).json({ status: 200, message: "post created", post });
   } catch (error) {
     res.status(400).json({ status: 400, message: error });
     console.log(error);
@@ -33,7 +34,7 @@ const getAllPostsByUserId = async (req, res) => {
   const { id } = req.params;
   try {
     let posts = await db.any(
-      "SELECT * FROM posts WHERE poster_id = $1 ORDER BY post_time DESC",
+      "SELECT users.user_id, users.user_name, users.name, users.avatar, posts_done.post_id, posts_done.post_body, posts_done.post_image, posts_done.post_time, tags FROM (SELECT posts.*, array_remove(ARRAY_AGG(hashtags.hashtag), NULL) AS tags FROM posts LEFT JOIN hashtags ON posts.post_id = hashtags.post_hashtaged GROUP BY posts.post_id ORDER BY post_time DESC) AS posts_done JOIN users ON users.user_id = posts_done.poster_id WHERE users.user_id =$1",
       [id]
     );
     res.status(200).json({

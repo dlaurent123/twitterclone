@@ -70,3 +70,7 @@
   background-color: #162d3f;
   cursor: pointer;
 }
+
+.hashSpan:hover {
+  text-decoration: underline;
+}

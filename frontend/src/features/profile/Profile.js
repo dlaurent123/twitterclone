@@ -11,6 +11,8 @@ import Posts from "../posts/Posts";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 
+import SearchItems from "../searchItems/SearchItems";
+
 const Profile = () => {
   const { currentUser, token } = useContext(AuthContext);
   const state = useSelector(userState);
@@ -96,7 +98,9 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="searchSide">Search</div>
+      <div className="searchSide">
+        <SearchItems />
+      </div>
     </div>
   );
 };

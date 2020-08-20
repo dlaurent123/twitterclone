@@ -16,6 +16,7 @@ import {
 } from "./features/loggedInUserInfo/loggedInUserInfoSlice";
 import axios from "axios";
 import { logOut } from "./util/firebaseFunctions";
+import Search from "./features/search/Search";
 
 let calls = 0;
 const App = () => {
@@ -84,6 +85,15 @@ const App = () => {
             <NavBar />
             <main className="mainDivv">
               <Profile />
+            </main>
+          </div>
+        </ProtectedRoute>
+
+        <ProtectedRoute exact path="/search/:hashtag">
+          <div className="signedInDiv">
+            <NavBar />
+            <main className="mainDivv">
+              <Search />
             </main>
           </div>
         </ProtectedRoute>

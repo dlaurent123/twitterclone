@@ -92,11 +92,12 @@
 }
 
 .tweetAddOns {
-  flex-grow: 0.8;
+  /* flex-grow: 0.8; */
 }
 
 .tweetModalButtonContainer {
-  flex-grow: 0.1;
+  /* flex-grow: 0.1; */
+  flex-grow: 0.4;
 }
 
 #tweetModalButton {
@@ -137,4 +138,18 @@ textarea::placeholder {
   color: #9197a3;
   font-size: 20px;
   align-self: center;
+}
+
+#hashIn {
+  padding: unset;
+}
+
+#hashIn input::placeholder {
+  color: #9197a3;
+}
+#hashIn input {
+  color: #1b95e0;
+}
+#hashIn label {
+  border: unset;
 }

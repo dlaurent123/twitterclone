@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/posts.css";
 import img from "../../images/user.png";
+import Hashtags from "../hashtags/Hashtags";
 
 const Posts = ({ posts = [], userName, name }) => {
   return posts.map((post) => {
@@ -61,6 +62,10 @@ const Posts = ({ posts = [], userName, name }) => {
                             >
                               {post.post_body}
                             </span>
+
+                            <Hashtags
+                              hashtags={post.tags ? post.tags : [post.hashtag]}
+                            />
                           </div>
                         </div>
                       </div>

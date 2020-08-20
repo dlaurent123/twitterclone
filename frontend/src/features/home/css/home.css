@@ -5,6 +5,7 @@
 
 .homeDiv {
   display: flex;
+  justify-content: space-between;
 }
 .feedDiv {
   flex-grow: 1.9;
@@ -18,7 +19,8 @@
 }
 
 .searchSide {
-  flex-grow: 0.9;
+  margin-right: 10px;
+  width: 350px;
 }
 
 .feedBanner {

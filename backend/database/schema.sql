@@ -1,13 +1,13 @@
--- DROP DATABASE IF EXISTS twitter_db;
--- CREATE DATABASE twitter_db;
+DROP DATABASE IF EXISTS twitter_db;
+CREATE DATABASE twitter_db;
 
--- \c twitter_db;
+\c twitter_db;
 
--- DROP TABLE IF EXISTS users;
--- DROP TABLE IF EXISTS posts;
--- DROP TABLE IF EXISTS likes;
--- DROP TABLE IF EXISTS follows;
--- DROP TABLE IF EXISTS hashtags;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS likes;
+DROP TABLE IF EXISTS follows;
+DROP TABLE IF EXISTS hashtags;
 
 
 
@@ -49,12 +49,12 @@ CREATE TABLE posts
 --     user_followed_id VARCHAR NOT NULL REFERENCES users(user_id) ON DELETE CASCADE
 -- );
 
--- CREATE TABLE hashtags
--- (
---     hashtag_id SERIAL PRIMARY KEY,
---     hashtag VARCHAR,
---     post_hashtaged INT NOT NULL REFERENCES posts(post_id) ON DELETE CASCADE
--- );
+CREATE TABLE hashtags
+(
+    hashtag_id SERIAL PRIMARY KEY,
+    hashtag VARCHAR,
+    post_hashtaged INT NOT NULL REFERENCES posts(post_id) ON DELETE CASCADE
+);
 
 INSERT INTO users
 VALUES('piaN8VQJ5ufz3jvKmD99HvoiOAE2', 'sarah_xo', 'check@gmail.com', 'Sarah B');
