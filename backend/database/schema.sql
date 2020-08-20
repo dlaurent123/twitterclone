@@ -1,13 +1,13 @@
-DROP DATABASE IF EXISTS twitter_db;
-CREATE DATABASE twitter_db;
+-- DROP DATABASE IF EXISTS twitter_db;
+-- CREATE DATABASE twitter_db;
 
-\c twitter_db;
+-- \c twitter_db;
 
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS posts;
-DROP TABLE IF EXISTS likes;
-DROP TABLE IF EXISTS follows;
-DROP TABLE IF EXISTS hashtags;
+-- DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS posts;
+-- DROP TABLE IF EXISTS likes;
+-- DROP TABLE IF EXISTS follows;
+-- DROP TABLE IF EXISTS hashtags;
 
 
 
