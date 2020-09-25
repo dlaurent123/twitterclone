@@ -2,6 +2,7 @@ import axios from "axios";
 import { apiUrl } from "./apiUrl";
 import { clearForm } from "../features/form/FormSlice";
 import { updateModal } from "../features/modal/modalSlice";
+import { getUsersPosts } from "./getUsersPosts";
 
 export const tweetFunction = (id, token, history) => async (
   dispatch,
@@ -44,7 +45,7 @@ export const tweetFunction = (id, token, history) => async (
 
     dispatch(clearForm);
     dispatch(updateModal());
-    history.push("/");
+    dispatch(getUsersPosts(id, token));
   } catch (error) {
     console.log(error);
   }

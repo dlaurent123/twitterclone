@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { AuthContext } from "../../providers/AuthContext";
 import { userState } from "../loggedInUserInfo/loggedInUserInfoSlice";
 import gif from "../../images/blue.png";
@@ -8,40 +8,23 @@ import back from "../../images/left-arrow.png";
 import "./css/profile.css";
 import ProfileInfo from "./profileInfo/ProfileInfo";
 import Posts from "../posts/Posts";
-import axios from "axios";
-import { apiUrl } from "../../util/apiUrl";
-
 import SearchItems from "../searchItems/SearchItems";
+import { getUsersPosts } from "../../util/getUsersPosts";
 
 const Profile = () => {
   const { currentUser, token } = useContext(AuthContext);
   const state = useSelector(userState);
   const [loading, setLoading] = useState(true);
   const history = useHistory();
-  const [posts, setPosts] = useState([]);
-  const API = apiUrl();
+  const posts = useSelector((state) => state.usersPosts);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const getUsersPosts = async () => {
-      try {
-        let res = await axios({
-          method: "GET",
-          url: `${API}/api/posts/user/${currentUser.id}`,
-          headers: {
-            AuthToken: token,
-          },
-        });
-
-        setPosts(res.data.posts);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getUsersPosts();
+    dispatch(getUsersPosts(currentUser.id, token));
     if (state.user !== null) {
       setLoading(false);
     }
-  }, [state.user, currentUser.id, API, token]);
+  }, [state.user, currentUser, dispatch, token]);
 
   if (loading) {
     return (
