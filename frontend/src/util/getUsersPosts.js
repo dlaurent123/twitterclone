@@ -1,6 +1,6 @@
 import axios from "axios";
 import { apiUrl } from "../util/apiUrl";
-import { setPosts } from "../features/usersPostsSlice/usersPosts";
+import { setUsersPosts } from "../features/postsSlice/postsSlice";
 
 export const getUsersPosts = (id, token) => async (dispatch, getState) => {
   const API = apiUrl();
@@ -13,7 +13,7 @@ export const getUsersPosts = (id, token) => async (dispatch, getState) => {
         AuthToken: token,
       },
     });
-    dispatch(setPosts(res.data.posts));
+    dispatch(setUsersPosts(res.data.posts));
   } catch (error) {
     console.log(error);
   }

@@ -16,7 +16,7 @@ const Profile = () => {
   const state = useSelector(userState);
   const [loading, setLoading] = useState(true);
   const history = useHistory();
-  const posts = useSelector((state) => state.usersPosts);
+  const posts = useSelector((state) => state.posts.usersPosts);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const Profile = () => {
                     fontWeight: "normal",
                   }}
                 >
-                  59 Tweets
+                  {posts.length} Tweets
                 </span>
               </h2>
             </div>
