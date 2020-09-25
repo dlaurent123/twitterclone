@@ -38,9 +38,7 @@ const SignUpForm = () => {
           keyName={"email"}
         />
       </div>
-      <div className="linkInsert">
-        <span>Use phone instead</span>
-      </div>
+      <div className="linkInsert">{/* <span>Use phone instead</span> */}</div>
       <FormFooter />
     </form>
   );

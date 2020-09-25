@@ -8,7 +8,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
-    "draft-js": "^0.11.6",
+    "draft-js": "^0.11.7",
     "draft-js-counter-plugin": "^2.0.2",
     "draft-js-plugins-editor": "^3.0.0",
     "draft.js": "^0.2.0",
@@ -19,8 +19,9 @@
     "react-modal": "^3.11.2",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "redux-logger": "^3.0.6"
+    "react-scripts": "^3.4.3",
+    "redux-logger": "^3.0.6",
+    "screenfull": "^5.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

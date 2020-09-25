@@ -6,6 +6,7 @@ import logger from "redux-logger";
 import err from "../features/err/errSlice";
 import userInfo from "../features/loggedInUserInfo/loggedInUserInfoSlice";
 import isLoading from "../features/loading/loadingSlice";
+import usersPosts from "../features/usersPostsSlice/usersPosts";
 
 const reducer = {
   modalIsOpen,
@@ -14,6 +15,7 @@ const reducer = {
   err,
   userInfo,
   isLoading,
+  usersPosts,
 };
 
 export default configureStore({
