@@ -1,43 +1,30 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import gif from "../../images/blue.png";
 import { userState } from "../loggedInUserInfo/loggedInUserInfoSlice";
 import "./css/home.css";
-import axios from "axios";
+
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
 import Posts from "../posts/Posts";
 import SearchInput from "../searchInput/SearchInput";
 import SearchItems from "../searchItems/SearchItems";
+import { getAllPosts } from "../../util/getAllPosts";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const state = useSelector(userState);
   const API = apiUrl();
   const { token } = useContext(AuthContext);
-  const [posts, setPosts] = useState([]);
+  const posts = useSelector((state) => state.posts.allPosts);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const getAllPosts = async () => {
-      try {
-        let res = await axios({
-          method: "GET",
-          url: `${API}/api/users/posts`,
-          headers: {
-            AuthToken: token,
-          },
-        });
-        // debugger;
-        setPosts(res.data.posts);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getAllPosts();
+    dispatch(getAllPosts(token));
     if (state.user) {
       setIsLoading(false);
     }
-  }, [state.user, API, token]);
+  }, [state.user, API, token, dispatch]);
 
   if (isLoading) {
     return (

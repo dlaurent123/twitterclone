@@ -4,7 +4,7 @@ const createPost = async (req, res) => {
   const { postBody, posterId, postImg } = req.body;
   try {
     let post = await db.oneOrNone(
-      "INSERT INTO posts(post_body,poster_id,post_image) VALUES($1,$2,$3) RETURNING post_id  ",
+      "INSERT INTO posts(post_body,poster_id,post_image) VALUES($1,$2,$3) RETURNING *  ",
       [postBody, posterId, postImg]
     );
 

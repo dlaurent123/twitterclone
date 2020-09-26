@@ -2,7 +2,7 @@ import axios from "axios";
 import { apiUrl } from "./apiUrl";
 import { clearForm } from "../features/form/FormSlice";
 import { updateModal } from "../features/modal/modalSlice";
-import { getUsersPosts } from "./getUsersPosts";
+import { receiveUserPost } from "../features/postsSlice/postsSlice";
 
 export const tweetFunction = (id, token, history) => async (
   dispatch,
@@ -27,7 +27,7 @@ export const tweetFunction = (id, token, history) => async (
 
     if (hash) {
       try {
-        await axios({
+        let rez = await axios({
           method: "POST",
           url: `${API}/api/hashtags`,
           data: {
@@ -38,6 +38,7 @@ export const tweetFunction = (id, token, history) => async (
             authToken: token,
           },
         });
+        res.data.post.tags = rez.data.tags;
       } catch (error) {
         console.log(error);
       }
@@ -45,7 +46,7 @@ export const tweetFunction = (id, token, history) => async (
 
     dispatch(clearForm);
     dispatch(updateModal());
-    dispatch(getUsersPosts(id, token));
+    dispatch(receiveUserPost(res.data.post));
   } catch (error) {
     console.log(error);
   }

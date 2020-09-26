@@ -3,18 +3,23 @@ const db = require("../../database/index");
 const addTag = async (req, res) => {
   const { hashtag, postId } = req.body;
   const hashtagArr = hashtag.split(" ");
-  console.log(hashtagArr);
-  hashtagArr.forEach(async (element) => {
-    try {
-      await db.none(
-        "INSERT INTO hashtags (hashtag, post_hashtaged) VALUES($1,$2)",
-        [element, postId]
-      );
-      res.status(200).json({ status: 200, message: "hashtag added" });
-    } catch (error) {
-      res.status(400).json({ status: 400, message: error });
-    }
-  });
+  const queryStr = hashtagArr
+    .map((tag, i) => {
+      return `($${i + 1},${postId})`;
+    })
+    .join(", ");
+
+  try {
+    await db.none(
+      "INSERT INTO hashtags (hashtag, post_hashtaged) VALUES" + queryStr,
+      hashtagArr
+    );
+    res
+      .status(200)
+      .json({ status: 200, message: "hashtag added", tags: hashtagArr });
+  } catch (error) {
+    res.status(400).json({ status: 400, message: error });
+  }
 };
 
 const search = async (req, res) => {
