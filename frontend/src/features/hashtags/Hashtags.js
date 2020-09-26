@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Hashtags = ({ hashtags }) => {
   if (hashtags !== null) {
-    return hashtags.map((element) => {
+    return hashtags.map((element, i) => {
       return (
-        <Link key={element} to={`/search/${element.slice(1, element.length)}`}>
+        <Link key={i} to={`/search/${element.slice(1, element.length)}`}>
           <span
             className="hashSpan"
             style={{
