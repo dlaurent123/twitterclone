@@ -67,10 +67,29 @@
 }
 
 .posts:hover {
-  background-color: #162d3f;
+  background-color: #192734;
   cursor: pointer;
 }
 
 .hashSpan:hover {
   text-decoration: underline;
+}
+
+.postBodyItems {
+  flex-grow: 1;
+  display: flex;
+}
+
+.postDropDownMenu {
+  align-self: flex-start;
+  width: 2vw;
+  height: 3.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 99999999px;
+}
+
+.postDropDownMenu:hover {
+  background-color: #162d3f;
 }
