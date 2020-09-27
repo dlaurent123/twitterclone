@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/posts.css";
 import img from "../../images/user.png";
-import down from "../../images/download.png";
+
 import Hashtags from "../hashtags/Hashtags";
 
 const Posts = ({ posts = [], userName, name }) => {
@@ -71,9 +71,10 @@ const Posts = ({ posts = [], userName, name }) => {
                         </div>
                       </div>
 
-                      <div className="postDropDownMenu">
-                        <img style={{ height: "2vh" }} alt="" src={down} />
-                      </div>
+                      <div
+                        name={post.post_id}
+                        className="postDropDownMenu"
+                      ></div>
                     </div>
                   </div>
                 </div>
