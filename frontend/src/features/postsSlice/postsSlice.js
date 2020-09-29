@@ -17,6 +17,10 @@ export const postsSlice = createSlice({
       state.allPosts.unshift(action.payload);
       state.usersPosts.unshift(action.payload);
     },
+    updatePosts: (state, action) => {
+      state.usersPosts.pop();
+      state.allPosts.pop();
+    },
   },
 });
 
@@ -24,6 +28,7 @@ export const {
   setUsersPosts,
   setAllPosts,
   receiveUserPost,
+  updatePosts,
 } = postsSlice.actions;
 export const { usersPostsState } = (state) => state.posts;
 export default postsSlice.reducer;

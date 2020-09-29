@@ -15,6 +15,6 @@ posts.use("/likes", postLikesRouter);
 
 posts.get("/user/:id", checkFirebaseToken, getAllPostsByUserId);
 posts.post("/", checkFirebaseToken, createPost);
-posts.delete("/", deletePostByUserId);
+posts.delete("/", checkFirebaseToken, deletePostByUserId);
 
 module.exports = posts;

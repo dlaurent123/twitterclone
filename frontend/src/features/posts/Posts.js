@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import "./css/posts.css";
 import img from "../../images/user.png";
-
 import Hashtags from "../hashtags/Hashtags";
+import garbage from "../../images/bin.png";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthContext";
+import { useDispatch } from "react-redux";
+import { deletePost } from "../../util/deletePost";
 
 const Posts = ({ posts = [], userName, name }) => {
+  const { currentUser, token } = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const onClick = (e) => {
+    dispatch(deletePost(e.target.id, currentUser.id, token));
+  };
+
   return posts.map((post) => {
     return (
       <div className="posts" key={post.post_id}>
@@ -73,8 +83,25 @@ const Posts = ({ posts = [], userName, name }) => {
 
                       <div
                         name={post.post_id}
-                        className="postDropDownMenu"
-                      ></div>
+                        className={
+                          post.user_id === currentUser.id
+                            ? "w3-dropdown-hover postDropDownMenu"
+                            : "postDropDownMenu"
+                        }
+                      >
+                        <div className="w3-dropdown-content dropDown">
+                          <div className="contentCont">
+                            <div
+                              onClick={onClick}
+                              id={post.post_id}
+                              className="deleteDiv"
+                            >
+                              <img id={post.post_id} alt="" src={garbage} />
+                              <span id={post.post_id}>Delete</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

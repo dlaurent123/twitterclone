@@ -17,6 +17,7 @@ const Home = () => {
   const API = apiUrl();
   const { token } = useContext(AuthContext);
   const posts = useSelector((state) => state.posts.allPosts);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const Home = () => {
     if (state.user) {
       setIsLoading(false);
     }
-  }, [state.user, API, token, dispatch]);
+  }, [state.user, API, token, dispatch, posts.length]);
 
   if (isLoading) {
     return (

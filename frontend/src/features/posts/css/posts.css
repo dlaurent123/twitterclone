@@ -98,3 +98,44 @@
   background-color: #162d3f;
   background-image: url("../../../images/bluedown.png");
 }
+
+.dropDown {
+  min-height: 5vh;
+  width: 13vw;
+  position: absolute;
+  right: 30%;
+  border-radius: 1vh;
+  display: flex;
+  background-color: rgb(21, 32, 43);
+  padding: 1vh;
+  box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 15px,
+    rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+  cursor: pointer;
+  display: none;
+}
+
+.deleteDiv img {
+  height: 2.5vh;
+}
+.contentCont {
+  display: flex;
+  width: 12vw;
+}
+
+.deleteDiv {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  padding: 1vh;
+  border-radius: 0.5vh;
+}
+.deleteDiv:hover {
+  background-color: #192734;
+}
+
+.deleteDiv span {
+  color: #e0245e;
+  margin: unset;
+  font-size: 15px;
+  margin-left: 1vw;
+}

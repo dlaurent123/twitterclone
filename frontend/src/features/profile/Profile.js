@@ -24,7 +24,7 @@ const Profile = () => {
     if (state.user !== null) {
       setLoading(false);
     }
-  }, [state.user, currentUser, dispatch, token]);
+  }, [state.user, currentUser, dispatch, token, posts.length]);
 
   if (loading) {
     return (
