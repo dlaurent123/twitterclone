@@ -33,6 +33,7 @@
 
 #space img {
   height: 26px;
+  box-sizing: unset;
 }
 
 #space {
