@@ -106,6 +106,7 @@
 .headButts {
   display: flex;
   align-items: center;
+  box-sizing: revert;
 }
 
 .headButts button {

@@ -149,6 +149,7 @@ textarea::placeholder {
 }
 #hashIn input {
   color: #1b95e0;
+  font-size: 18px;
 }
 #hashIn label {
   border: unset;
